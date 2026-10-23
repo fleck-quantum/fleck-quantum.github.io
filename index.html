@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fleck · Quantum computing for the life sciences</title>
+<meta name="description" content="Fleck is an eight-party all-Swiss consortium using quantum computing for contrast agent discovery, drug design, and brain cancer detection with ultra-low field MR imaging.">
+<meta property="og:title" content="Fleck: quantum computing for the life sciences">
+<meta property="og:description" content="An eight-party all-Swiss consortium applying quantum computing to contrast agent discovery, drug design and ULF-MRI brain cancer detection.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink: #d76fc9;
+  --pink-soft: #f3cdec;
+  --green: #4ca22f;
+  --green-soft: #b8e4a8;
+  --orange: #ec6a2a;
+  --grey: #e8e8e8;
+  --ink: #111;
+  --muted: #5b5b5b;
+  --bg: #fff;
+  --max: 1080px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 17px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh; display: flex; flex-direction: column;
+}
+main { flex: 1; }
+a { color: inherit; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+/* Nav */
+nav {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(255,255,255,.88); backdrop-filter: blur(8px);
+  border-bottom: 1px solid #f0f0f0;
+}
+nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.brand { font-weight: 800; font-size: 21px; text-decoration: none; letter-spacing: -.01em; color: var(--pink); }
+nav ul { list-style: none; display: flex; gap: 26px; margin: 0; padding: 0; }
+nav ul a { text-decoration: none; font-weight: 500; font-size: 15px; color: var(--muted); }
+nav ul a:hover, nav ul a.active { color: var(--ink); }
+nav ul a.active { font-weight: 600; }
+
+/* Hero */
+.hero { padding: 48px 0 24px; }
+.hero .wrap { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.hero h1 {
+  font-weight: 800; font-size: clamp(32px, 4.2vw, 52px); line-height: 1.06;
+  letter-spacing: -.025em; margin: 0 0 20px; max-width: 14ch; position: relative;
+}
+.hero h1 span { color: var(--pink); }
+.hero p.lead {
+  font-size: 17px; color: #333; max-width: 34em; margin: 0; position: relative;
+}
+.hero .tag {
+  display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink); margin-bottom: 14px; position: relative;
+}
+.blobs { flex: 0 0 auto; width: 340px; height: 360px; pointer-events: none; display: block; }
+.hero-text { position: relative; z-index: 1; max-width: 580px; }
+
+/* Sections */
+section { padding: 56px 0; }
+section + section { border-top: 1px solid #f0f0f0; }
+h2 {
+  font-weight: 800; font-size: clamp(26px, 3vw, 34px); letter-spacing: -.02em;
+  line-height: 1.1; margin: 0 0 12px;
+}
+.section-intro { color: var(--muted); max-width: 40em; margin: 0 0 28px; }
+
+/* Page header (sub-pages) */
+.prose { max-width: 40em; }
+.prose p { margin: 0 0 16px; }
+.page-head { position: relative; padding-top: 48px; padding-bottom: 8px; }
+.page-head h1 {
+  font-weight: 800; font-size: clamp(30px, 3.4vw, 40px); letter-spacing: -.02em;
+  line-height: 1.1; margin: 0 0 10px;
+}
+.page-head p { color: var(--muted); margin: 0; max-width: 40em; }
+.page-head .flecks { position: absolute; right: 24px; top: 36px; }
+.page-body { padding-top: 32px; padding-bottom: 56px; }
+
+/* Partners */
+.partners { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.partner {
+  display: flex; align-items: center; justify-content: center;
+  height: 104px; padding: 18px; border-radius: 20px; background: #fafafa;
+  transition: background .2s;
+}
+.partner:hover { background: var(--grey); }
+.partner img { max-width: 100%; max-height: 48px; object-fit: contain; }
+
+/* News */
+.news-empty {
+  border: 2px dashed var(--grey); border-radius: 24px; padding: 32px; color: var(--muted); text-align: center;
+}
+
+/* Contact */
+.contact-box {
+  background: var(--pink-soft); border-radius: 32px; padding: 44px; position: relative; overflow: hidden;
+}
+.contact-box h2 { position: relative; }
+.contact-box p { position: relative; margin: 0 0 8px; max-width: 34em; }
+.contact-box a.mail {
+  display: inline-block; margin-top: 14px; font-weight: 600; text-decoration: none;
+  background: var(--ink); color: #fff; padding: 11px 22px; border-radius: 999px; position: relative;
+}
+.contact-box .c1 { position: absolute; right: -40px; bottom: -60px; width: 200px; height: 200px; border-radius: 50%; background: var(--green); opacity: .9; }
+.contact-box .c2 { position: absolute; right: 150px; top: 24px; width: 26px; height: 26px; border-radius: 50%; background: var(--orange); }
+
+footer { padding: 32px 0 44px; color: var(--muted); font-size: 14px; border-top: 1px solid #f0f0f0; }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 860px) {
+  .partners { grid-template-columns: repeat(2, 1fr); }
+  .blobs { width: 240px; height: 255px; }
+  .page-head .flecks { display: none; }
+  nav ul { gap: 18px; }
+}
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .wrap { padding: 0 16px; }
+  nav ul { gap: 14px; }
+  nav ul a { font-size: 14px; }
+  .hero { padding: 40px 0 48px; }
+  .blobs { display: none; }
+  section { padding: 44px 0; }
+  .contact-box { padding: 32px 24px; }
+  .partner { height: 88px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">Fleck</a>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#consortium">Consortium</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-text">
+      <div class="tag">An all-Swiss consortium</div>
+      <h1><span>Fleck:</span> quantum computing for the life sciences</h1>
+      <p class="lead">Fleck is an eight-party all-Swiss consortium that will use quantum computing to address three key application domains: contrast agent discovery; drug design; and brain cancer detection using ultra-low field (ULF) MR imaging.</p>
+    </div>
+  <!-- Decorative "flecks", based on the project colour scheme -->
+    <svg class="blobs" viewBox="-30 40 490 520" preserveAspectRatio="xMaxYMax meet" aria-hidden="true">
+      <path d="M140 560 C 180 400, 300 330, 460 300 L 460 560 Z" fill="#e8e8e8"/>
+      <rect x="40" y="150" width="200" height="380" rx="100" transform="rotate(42 140 340)" fill="#f3cdec"/>
+      <circle cx="250" cy="90" r="48" fill="#b8e4a8"/>
+      <circle cx="380" cy="120" r="30" fill="#b8e4a8"/>
+      <circle cx="335" cy="330" r="30" fill="#b8e4a8"/>
+      <circle cx="370" cy="420" r="11" fill="#ec6a2a"/>
+      <circle cx="300" cy="470" r="9" fill="#ec6a2a"/>
+      <circle cx="430" cy="560" r="110" fill="#4ca22f"/>
+      <circle cx="70" cy="560" r="52" fill="#ec6a2a"/>
+    </svg>
+  </div>
+</header>
+
+<section id="consortium">
+  <div class="wrap">
+    <h2>The consortium</h2>
+    <p class="section-intro">Eight partners from Swiss academia and industry.</p>
+    <div class="partners">
+      <!-- Add each partner's website in href="" -->
+      <a class="partner" href="#" title="Universität Basel"><img src="logos/unibasel.png" alt="Universität Basel"></a>
+      <a class="partner" href="#" title="QuantumBasel"><img src="logos/quantumbasel.png" alt="QuantumBasel"></a>
+      <a class="partner" href="#" title="ZuriQ"><img src="logos/zuriq.png" alt="ZuriQ"></a>
+      <a class="partner" href="#" title="ETH Zürich"><img src="logos/eth.png" alt="ETH Zürich"></a>
+      <a class="partner" href="#" title="Université de Fribourg"><img src="logos/unifr.png" alt="Université de Fribourg / Universität Freiburg"></a>
+      <a class="partner" href="#" title="Multiwave Technologies"><img src="logos/multiwave.png" alt="Multiwave Technologies"></a>
+      <a class="partner" href="#" title="Novartis"><img src="logos/novartis.png" alt="Novartis"></a>
+      <a class="partner" href="#" title="Phoeniqs"><img src="logos/phoeniqs.png" alt="Phoeniqs"></a>
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <h2>News</h2>
+    <p class="section-intro">Publications, events and updates from the project.</p>
+    <!-- Replace this box with a list of news items when you have them -->
+    <div class="news-empty">Updates coming soon.</div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <span class="c1" aria-hidden="true"></span>
+      <span class="c2" aria-hidden="true"></span>
+      <h2>Get in touch</h2>
+      <p>Interested in collaborating or learning more about Fleck?</p>
+      <!-- TODO: set the project contact address -->
+      <a class="mail" href="mailto:contact@example.org">Contact us</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Fleck consortium</span>
+    <span>Quantum computing for the life sciences</span>
+  </div>
+</footer>
+
+</body>
+</html>
