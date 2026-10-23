@@ -176,7 +176,8 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
 /* Project page */
 .project-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 48px; align-items: start; }
 .project-grid figure { margin: 0; }
-.project-grid figure img { width: 100%; height: auto; display: block; border-radius: 16px; border: 1px solid #eee; }
+.project-grid figure img { width: 100%; height: auto; display: block; }
+.project-grid .prose { font-size: 15.5px; }
 .project-grid figcaption { font-size: 14px; color: var(--muted); margin-top: 10px; }
 
 /* Contact page */
@@ -207,7 +208,7 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
         <button class="menu-btn active" type="button" aria-haspopup="true" aria-expanded="false">About <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <ul class="submenu">
           <li><a href="project.html" class="active" aria-current="page">Project</a></li>
-          <li><a href="researchers.html">Researchers</a></li>
+          <li><a href="researchers.html">Researchers and engineers</a></li>
         </ul>
       </li>
       <li><a href="index.html#consortium">Consortium</a></li>
@@ -226,16 +227,15 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
       <circle cx="74" cy="56" r="6" fill="#4ca22f"/>
     </svg>
     <h1>The project</h1>
-    <p>Quantum computing for the life sciences.</p>
   </div>
 
   <div class="wrap page-body">
     <div class="project-grid">
       <div class="prose">
-        <p>The Fleck platform (QuantumBasel, Phoeniqs) contains quantum (ZuriQ) and AI resources. A software stack (QuantumBasel) orchestrates the two.</p>
-        <p>A data set is created (Uni Fribourg) and, using the infrastructure, is used to train a quantum ML generator (Uni Basel) and a classical ML model (Uni Fribourg).</p>
-        <p>Candidate contrast agents and contrast agent+drug complexes are produced. The set of all candidates is ranked and subsequently re-ranked after classical molecular docking simulations (Uni Fribourg) and quantum-enhanced free energy of binding calculations (ETHZ), which use the quantum-AI stack in a loop (FreeQuantum).</p>
-        <p>The best candidate is then synthesised in the lab (Novartis) and combined with a phantom to undergo relaxometry experiments in an ULF MRI scanner (Multiwave).</p>
+        <p>The Fleck platform (<strong>QuantumBasel, Phoeniqs</strong>) contains quantum (<strong>ZuriQ</strong>) and AI resources. A software stack (<strong>QuantumBasel</strong>) orchestrates the two.</p>
+        <p>A data set is created (<strong>Uni Fribourg</strong>) and, using the infrastructure, is used to train a quantum ML generator (<strong>Uni Basel</strong>) and a classical ML model (<strong>Uni Fribourg</strong>).</p>
+        <p>Candidate contrast agents and contrast agent+drug complexes are produced. The set of all candidates is ranked and subsequently re-ranked after classical molecular docking simulations (<strong>Uni Fribourg</strong>) and quantum-enhanced free energy of binding calculations (<strong>ETHZ</strong>), which use the quantum-AI stack in a loop (FreeQuantum).</p>
+        <p>The best candidate is then synthesised in the lab (<strong>Novartis</strong>) and combined with a phantom to undergo relaxometry experiments in an ULF MRI scanner (<strong>Multiwave</strong>).</p>
       </div>
       <figure>
         <a href="schematic.png" target="_blank" rel="noopener"><img src="schematic.png" alt="Schematic of the Fleck workflow: the platform stack with CPU, GPU and QPU resources; training a quantum ML generator and a classical ML model; ranking and quantum re-ranking of candidates; synthesis of the best candidate; and scanning in ULF MRI with a phantom."></a>

@@ -166,12 +166,13 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
 .news-list .when { flex: 0 0 auto; font-size: 14px; font-weight: 600; color: var(--pink); min-width: 92px; }
 
 /* Funding */
-.funding { padding: 36px 0; }
+.funding { padding: 8px 0 28px; }
+.funding + footer, main:has(.funding:last-child) + footer { border-top: 0; padding-top: 0; }
 .funding .wrap { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
 .funding .funders { display: flex; align-items: center; gap: 24px; flex: 0 0 auto; }
-.funding img { height: 34px; width: auto; display: block; }
-.funding img.sqi { height: 40px; }
-.funding p { margin: 0; color: var(--muted); font-size: 15px; }
+.funding img { height: 26px; width: auto; display: block; }
+.funding img.sqi { height: 31px; }
+.funding p { margin: 0; color: var(--muted); font-size: 14px; }
 
 /* Project page */
 .project-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 48px; align-items: start; }
@@ -207,7 +208,7 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
         <button class="menu-btn" type="button" aria-haspopup="true" aria-expanded="false">About <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <ul class="submenu">
           <li><a href="project.html">Project</a></li>
-          <li><a href="researchers.html">Researchers</a></li>
+          <li><a href="researchers.html">Researchers and engineers</a></li>
         </ul>
       </li>
       <li><a href="#consortium">Consortium</a></li>
@@ -243,7 +244,7 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
 <section id="consortium">
   <div class="wrap">
     <h2>The consortium</h2>
-    <p class="section-intro">Eight partners from Swiss academia and industry.</p>
+    <p class="section-intro">Four partners from academia and four from industry.</p>
     <div class="partners">
       <!-- Add each partner's website in href="" -->
       <a class="partner" href="#" title="Universität Basel"><img class="tall" src="logos/unibasel.png" alt="Universität Basel"></a>
@@ -268,19 +269,14 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
         <span class="when">27 Nov 2026</span>
         <span><strong>Kick-off meeting.</strong> Friday 27th November 2026, Novartis Pharma, Fabrikstrasse 2, 4056 Basel</span>
       </li>
+      <li>
+        <span class="when">01 Oct 2026</span>
+        <span><strong>Official project start.</strong> 01 October 2026</span>
+      </li>
     </ul>
   </div>
 </section>
 
-<section class="funding" aria-label="Funding">
-  <div class="wrap">
-    <div class="funders">
-      <img src="logos/scnat.png" alt="SCNAT – Swiss Academy of Sciences">
-      <img class="sqi" src="logos/sqi.png" alt="SQI – Swiss Quantum Initiative">
-    </div>
-    <p>Funded by the SCNAT Swiss Quantum Initiative under grant agreement TRL_F_YG</p>
-  </div>
-</section>
 
 <section id="contact">
   <div class="wrap">
@@ -293,6 +289,16 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
     </div>
   </div>
 </section>
+
+<div class="funding" aria-label="Funding">
+  <div class="wrap">
+    <div class="funders">
+      <img src="logos/scnat.png" alt="SCNAT – Swiss Academy of Sciences">
+      <img class="sqi" src="logos/sqi.png" alt="SQI – Swiss Quantum Initiative">
+    </div>
+    <p>Funded by the SCNAT Swiss Quantum Initiative under grant agreement TRL_F_YG</p>
+  </div>
+</div>
 </main>
 
 <footer>
