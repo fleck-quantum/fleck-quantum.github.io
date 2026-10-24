@@ -199,6 +199,7 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
   .news-list li { flex-direction: column; gap: 2px; }
   nav .submenu { left: auto; right: -40px; }
 }
+@media (max-width: 860px) { .br-lg { display: none; } }
 </style>
 </head>
 <body>
@@ -212,7 +213,7 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
         <button class="menu-btn" type="button" aria-haspopup="true" aria-expanded="false">About <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <ul class="submenu">
           <li><a href="project.html">Project</a></li>
-          <li><a href="researchers.html">Staff</a></li>
+          <li><a href="researchers.html">People</a></li>
           <li><a href="consortium.html">Consortium</a></li>
         </ul>
       </li>
@@ -229,7 +230,7 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
     <div class="hero-text">
       <div class="tag">An all-Swiss consortium</div>
       <h1><span>Fleck:</span> quantum computing for the life sciences</h1>
-      <p class="lead">Fleck is an eight-party all-Swiss consortium that will use quantum computing to address three key application domains: contrast agent discovery; drug design; and brain cancer detection using ultra-low field (ULF) MR imaging.</p>
+      <p class="lead">Fleck is an eight-party all-Swiss consortium that will use quantum computing to address three key application domains: contrast agent discovery; drug design; and brain cancer detection using ultra-low field<br class="br-lg"> (ULF) MR imaging.</p>
     </div>
   <!-- Decorative "flecks", based on the project colour scheme -->
     <svg class="blobs" viewBox="-30 40 490 520" preserveAspectRatio="xMaxYMax meet" aria-hidden="true">
@@ -278,11 +279,11 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
     <ul class="news-list">
       <li>
         <span class="when">27 Nov 2026</span>
-        <span><strong>Kick-off meeting.</strong> 27 November 2026, Novartis Pharma, Fabrikstrasse 2, 4056 Basel</span>
+        <span><strong>Kick-off meeting.</strong> Novartis Pharma, Fabrikstrasse 2, 4056 Basel</span>
       </li>
       <li>
         <span class="when">01 Oct 2026</span>
-        <span><strong>Official project start.</strong> 01 October 2026</span>
+        <span><strong>Official project start.</strong></span>
       </li>
     </ul>
   </div>

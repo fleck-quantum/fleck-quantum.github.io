@@ -210,6 +210,101 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
 }
 .topics a:hover { background: var(--ink); color: #fff; }
 .coming-soon { margin: 28px 0 0; color: var(--muted); }
+/* Topic buttons: sub-topics */
+.topics a.sub { background: rgba(255,255,255,.6); font-weight: 500; padding-left: 14px; }
+.topics a.sub::before { content: "↳ "; color: var(--pink); font-weight: 700; }
+.topics a.active, .topics a.active:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.topics a.sub.active::before { color: #fff; }
+
+/* Topic panels */
+.topic-panel { margin-top: 32px; max-width: 46em; }
+.topic-panel[hidden] { display: none; }
+.topic-panel .crumb { font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--pink); margin: 0 0 6px; }
+.topic-panel .crumb a { color: inherit; text-decoration: none; }
+.topic-panel .crumb a:hover { text-decoration: underline; }
+.topic-panel h2 { font-size: clamp(22px, 2.3vw, 26px); margin: 0 0 14px; }
+.topic-panel p { margin: 0 0 14px; color: #222; }
+.topic-panel .soon { color: var(--muted); }
+.topic-panel sup { font-size: .68em; line-height: 0; }
+.topic-panel sup a { color: var(--pink); text-decoration: none; font-weight: 600; }
+.topic-panel sup a:hover { text-decoration: underline; }
+.refs { margin: 28px 0 0; padding: 16px 0 0; list-style: none; font-size: 13.5px; line-height: 1.5; color: #333; }
+.refs::before { content: ""; display: block; width: 180px; border-top: 1px solid #111; margin: 0 0 14px; }
+.refs li { margin: 0 0 8px; padding-left: 1.3em; text-indent: -1.3em; }
+.refs li:target { background: #fdf3fb; }
+.refs .n { font-size: .75em; vertical-align: super; line-height: 0; margin-right: 3px; }
+.refs a { color: #1a55c4; word-break: break-all; }
+.refs .todo { color: var(--muted); font-style: italic; }
+.topic-fig { margin: 22px 0 26px; }
+.float-fig { float: right; width: 300px; margin: 9px 0 12px 28px; }
+.float-fig img { width: 100%; height: auto; display: block; }
+.float-fig figcaption { font-size: 13.5px; color: var(--muted); line-height: 1.45; margin-top: 8px; }
+.topic-panel { display: flow-root; }
+@media (max-width: 560px) { .float-fig { float: none; width: 100%; max-width: 340px; margin: 4px auto 18px; } }
+.topic-fig img { width: 100%; height: auto; display: block; }
+.topic-fig figcaption { font-size: 14px; color: var(--muted); line-height: 1.5; margin-top: 10px; }
+.gl-h { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--pink); margin: 26px 0 10px; }
+.glossary { margin: 0; display: grid; grid-template-columns: 210px 1fr; border-top: 1px solid #eee; }
+.glossary dt, .glossary dd { margin: 0; padding: 12px 0; border-bottom: 1px solid #eee; }
+.glossary dt { font-weight: 700; padding-right: 18px; }
+.glossary dd { color: #333; font-size: 15.5px; }
+.glossary.abbr { grid-template-columns: 110px 1fr; }
+@media (max-width: 560px) {
+  .glossary, .glossary.abbr { grid-template-columns: 1fr; }
+  .glossary dt { border-bottom: 0; padding-bottom: 2px; }
+  .glossary dd { padding-top: 0; }
+}
+
+
+/* Glossary pop-ups */
+.panels { position: relative; }
+button.gl-term {
+  font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer;
+  text-decoration: underline dotted var(--pink); text-decoration-thickness: 2px; text-underline-offset: 3px;
+}
+button.gl-term:hover, button.gl-term.on { background: var(--pink-soft); border-radius: 3px; }
+.gl-note {
+  position: absolute; right: 0; width: 290px; z-index: 5;
+  background: #fff; border: 1px solid #eee; border-left: 4px solid var(--pink); border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.10); padding: 14px 16px 16px; font-size: 14.5px; line-height: 1.5;
+}
+.gl-note[hidden] { display: none; }
+.gl-note .gl-t { font-weight: 800; font-size: 15.5px; margin: 0 24px 6px 0; }
+.gl-note .gl-d { margin: 0; color: #333; }
+.gl-note .gl-more { display: inline-block; margin-top: 8px; font-size: 13px; font-weight: 600; color: var(--pink); text-decoration: none; }
+.gl-note .gl-x { position: absolute; top: 8px; right: 10px; background: none; border: 0; font-size: 20px; line-height: 1; cursor: pointer; color: var(--muted); }
+@media (max-width: 1100px) {
+  .gl-note { position: fixed; left: 16px !important; right: 16px; bottom: 16px; top: auto !important; width: auto; max-height: 50vh; overflow: auto; }
+}
+
+/* Learn layout: topic list on the left, text in the middle, glossary notes in the right margin */
+.learn-layout { display: grid; grid-template-columns: 236px minmax(0, 1fr); column-gap: 32px; align-items: start; }
+.learn-layout .topic-banner { position: sticky; top: 84px; padding: 22px 16px 26px; border-radius: 24px; }
+.learn-layout .topics { flex-direction: column; flex-wrap: nowrap; gap: 4px; }
+.learn-layout .topics .tg { margin: 14px 0 4px 10px; font-size: 11.5px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: #7a3c71; }
+.learn-layout .topics .tg:first-child { margin-top: 0; }
+.learn-layout .topics a { display: block; border-radius: 12px; padding: 8px 12px; font-size: 14.5px; line-height: 1.3; border: 0; background: rgba(255,255,255,.75); }
+.learn-layout .topics .tl { display: block; padding: 8px 12px; border-radius: 12px; background: rgba(255,255,255,.75); font-size: 14.5px; font-weight: 600; line-height: 1.3; color: var(--ink); cursor: default; }
+.learn-layout .topics a.sub { margin-left: 16px; padding-left: 10px; font-size: 14px; }
+.learn-layout .topic-banner .dot1 { width: 90px; height: 90px; right: -30px; bottom: -36px; }
+.learn-layout .topic-banner .dot2 { right: 70px; top: auto; bottom: 18px; }
+.learn-layout .topics a:hover { background: #fff; color: var(--ink); }
+.learn-layout .topics a.active, .learn-layout .topics a.active:hover { background: var(--ink); color: #fff; }
+.learn-main .coming-soon { margin-top: 4px; }
+.learn-main .topic-panel { margin-top: 0; max-width: none; }
+@media (min-width: 1101px) { .panels .gl-note { left: auto; right: 0; width: 290px; } }
+.learn-main .topic-panel p, .learn-main .refs li { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+@media (max-width: 760px) {
+  .learn-layout { grid-template-columns: 1fr; row-gap: 24px; }
+  .learn-layout .topic-banner { position: relative; top: auto; }
+  .learn-layout .topics { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+  .learn-layout .topics .tg { width: 100%; margin: 8px 0 0 2px; }
+  .learn-layout .topics a, .learn-layout .topics a.sub { margin-left: 0; }
+  .learn-layout .topics .tl { display: inline-block; font-size: 15px; padding: 10px 18px; border-radius: 999px; }
+}
+.h1-link { color: inherit; text-decoration: none; }
+.h1-link:hover { color: var(--pink); }
+.coming-soon strong { color: var(--ink); }
 </style>
 </head>
 <body>
@@ -223,7 +318,7 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
         <button class="menu-btn" type="button" aria-haspopup="true" aria-expanded="false">About <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <ul class="submenu">
           <li><a href="project.html">Project</a></li>
-          <li><a href="researchers.html">Staff</a></li>
+          <li><a href="researchers.html">People</a></li>
           <li><a href="consortium.html">Consortium</a></li>
         </ul>
       </li>
@@ -242,24 +337,187 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
       <circle cx="122" cy="52" r="9" fill="#ec6a2a"/>
       <circle cx="74" cy="56" r="6" fill="#4ca22f"/>
     </svg>
-    <h1>Learn</h1>
+    <h1><a class="h1-link" href="learn.html">Learn</a></h1>
   </div>
 
   <div class="wrap page-body">
-    <div class="topic-banner">
+    <div class="learn-layout">
+    <aside class="topic-banner">
       <span class="dot1" aria-hidden="true"></span>
       <span class="dot2" aria-hidden="true"></span>
-      <!-- Each button jumps to a section with the matching id, e.g. <section id="quantum-theory">. Add those sections below when the intros are ready. -->
-      <div class="topics">
-        <a href="#quantum-theory">Quantum theory</a>
-        <a href="#quantum-computer">Quantum computer</a>
-        <a href="#quantum-chemistry">Quantum chemistry</a>
-        <a href="#quantum-algorithms">Quantum algorithms</a>
-        <a href="#computational-chemistry">Computational chemistry</a>
-        <a href="#ulf-mri">Ultra-low field magnetic resonance imaging</a>
+      <!-- Topics are grouped; within each group they are alphabetical. A sub-topic (class="sub") goes straight after its parent. Each link opens the panel with the matching id. -->
+      <div class="topics" role="navigation" aria-label="Learn topics">
+        <p class="tg">Quantum computing</p>
+        <span class="tl" aria-disabled="true">Algorithms</span>
+        <a href="#biomolecular-recognition" class="sub">Quantum biomolecular recognition</a>
+        <a href="#qgan" class="sub">Quantum generative adversarial networks</a>
+        <a href="#quantum-computer">Hardware</a>
+        <a href="#hybrid-quantum-ai">Hybrid quantum-AI platform</a>
+        <p class="tg">Chemistry and imaging</p>
+        <a href="#computational-chemistry">Computational chemistry for MRI</a>
+        <a href="#ulf-mri">Ultra-low field MRI</a>
+        <p class="tg">Appendix</p>
+        <a href="#glossary">Glossary</a>
       </div>
+    </aside>
+    <div class="learn-main">
+    <p class="coming-soon" id="learn-intro">In the left-hand panel you will find resources, references and texts on the topics in the Fleck project.<br><strong>Coming soon:</strong> intros to the fundamental topics in the Fleck project.</p>
+
+    <div class="panels">
+      <aside class="gl-note" id="gl-note" role="dialog" aria-live="polite" hidden>
+        <button class="gl-x" type="button" aria-label="Close">×</button>
+        <p class="gl-t"></p>
+        <p class="gl-d"></p>
+        <a class="gl-more" href="#glossary">Open the glossary →</a>
+      </aside>
+      <article class="topic-panel" id="qgan" hidden>
+        <p class="crumb">Algorithms ›</p>
+        <h2>Quantum generative adversarial networks</h2>
+        <p>Computer-assisted drug design relies on a number of techniques, one of which includes classical GANs.<sup><a href="#qgan-ref-1">1</a>&#8201;<a href="#qgan-ref-2">2</a>&#8201;<a href="#qgan-ref-3">3</a>&#8201;<a href="#qgan-ref-4">4</a>&#8201;<a href="#qgan-ref-5">5</a></sup> There are a few prospective studies investigating quantum pipelines to enhance the robustness of classical GAN for drug design,<sup><a href="#qgan-ref-6">6</a></sup> however none of them include <em>style-based</em> approaches. As an alternative to qGANs, the project also plans to investigate quantum diffusion models.</p>
+        <p>Diffusion models are considered the state of the art for classical image generation and are inspired by non-equilibrium thermodynamics. The idea is to define a Markov chain of diffusion steps to gradually add random noise to the input data, and then train a network to learn the reverse process, the denoising, such that the final constructed data is created out of random noise by using the trained denoising network.</p>
+        <p>Since the first seminal paper<sup><a href="#qgan-ref-7">7</a></sup> introducing a quantum architecture for diffusion models, there have been other works refining the quantum architecture,<sup><a href="#qgan-ref-8">8</a>&#8201;<a href="#qgan-ref-9">9</a>&#8201;<a href="#qgan-ref-10">10</a>&#8201;<a href="#qgan-ref-11">11</a></sup> including latent approach for image synthesis<sup><a href="#qgan-ref-12">12</a>&#8201;<a href="#qgan-ref-13">13</a></sup> and efficient implementation on current hardware. To date, there has been no attempt to apply quantum diffusion models to drug design.</p>
+        <p>The qGAN style-based approach is original research that came out of Switzerland and was first proposed by consortium member <strong>Uni Basel</strong><sup><a href="#qgan-ref-14">14</a></sup>—a technique that was later combined with a latent approach.<sup><a href="#qgan-ref-15">15</a></sup> The latter demonstrated great promise in increasing robustness and reducing model complexity for drug discovery applications but has, so far, not been deployed for anti-cancer treatments (with or without a contrast agent as a chemical complex).</p>
+        <p>Fleck will be the first project to automate a quantum drug-discovery pipeline using style-based qGANs in order to search for brain cancer imaging improvements and treatments.</p>
+
+        <ol class="refs">
+          <li id="qgan-ref-1"><span class="n">1</span>Pang, C.; Qiao, J.; Zeng, X.; Zou, Q.; Wei, L. Deep Generative Models in De Novo Drug Molecule Generation. <em>Journal of Chemical Information and Modeling</em> 2023, 64 (7), 2174–2194. DOI: <a href="https://doi.org/10.1021/acs.jcim.3c01496" target="_blank" rel="noopener">10.1021/acs.jcim.3c01496</a></li>
+          <li id="qgan-ref-2"><span class="n">2</span>Grygorenko, O.; Radchenko, D.; Dziuba, I.; Chuprina, A.; Gubina, K.; Moroz, Y. Generating Multibillion Chemical Space of Readily Accessible Screening Compounds. <em>iScience</em> 2020, 23 (11). DOI: <a href="https://doi.org/10.1016/j.isci.2020.101681" target="_blank" rel="noopener">10.1016/j.isci.2020.101681</a></li>
+          <li id="qgan-ref-3"><span class="n">3</span>Stokes, J.; Yang, K.; Swanson, K.; Jin, W.; Cubillos-Ruiz, A.; Donghia, N.; MacNair, C.; French, S.; Carfrae, L.; Bloom-Ackerman, Z.; et al. A Deep Learning Approach to Antibiotic Discovery. <em>Cell</em> 2020, 180 (4), 688–702. DOI: <a href="https://doi.org/10.1016/j.cell.2020.01.021" target="_blank" rel="noopener">10.1016/j.cell.2020.01.021</a></li>
+          <li id="qgan-ref-4"><span class="n">4</span>Tripathi, S. <em>et al.</em> Recent advances and application of generative adversarial networks in drug discovery, development, and targeting. <em>Artificial Intelligence in the Life Sciences</em> 2022, 2. DOI: <a href="https://doi.org/10.1016/j.ailsci.2022.100045" target="_blank" rel="noopener">10.1016/j.ailsci.2022.100045</a></li>
+          <li id="qgan-ref-5"><span class="n">5</span>Bilodeau, C.; Jin, W.; Jaakkola, T.; Barzilay, R.; Jensen, K. Generative models for molecular discovery: Recent advances and challenges. <em>Wiley Interdisciplinary Reviews-Computational Molecular Science</em> 2022, 12 (5). DOI: <a href="https://doi.org/10.1002/wcms.1608" target="_blank" rel="noopener">10.1002/wcms.1608</a></li>
+          <li id="qgan-ref-6"><span class="n">6</span>Szymczak, P.; Zarzecki, W.; Wang, J.; Duan, Y.; Wang, J.; Coelho, L.; de la Fuente-Nunez, C.; Szczurek, E. AI-Driven Antimicrobial Peptide Discovery: Mining and Generation. <em>Accounts of Chemical Research</em> 2025, 58 (12), 1831–1846. DOI: <a href="https://doi.org/10.1021/acs.accounts.0c00594" target="_blank" rel="noopener">10.1021/acs.accounts.0c00594</a></li>
+          <li id="qgan-ref-7"><span class="n">7</span>Cacioppo, A.; Colantonio, L.; Bordoni, S.; Giagu, S. Quantum Diffusion Models. <em>arXiv preprint</em> arXiv:2311.15444, 2023. DOI: <a href="https://doi.org/10.48550/arXiv.2311.15444" target="_blank" rel="noopener">10.48550/arXiv.2311.15444</a></li>
+          <li id="qgan-ref-8"><span class="n">8</span>Parigi, M.; Martina, S.; Caruso, F. Quantum-Noise-Driven Generative Diffusion Models. <em>Advanced Quantum Technologies</em> 2024, 7 (7), 2300401. DOI: <a href="https://doi.org/10.1002/qute.202300401" target="_blank" rel="noopener">10.1002/qute.202300401</a></li>
+          <li id="qgan-ref-9"><span class="n">9</span>Kölle, M.; Stenzel, G.; Stein, J.; Zielinski, S.; Ommer, B.; Linnhoff-Popien, C. Quantum Denoising Diffusion Models. <em>2024 IEEE International Conference on Quantum Software (QSW)</em>, Shenzhen, China, 2024, pp. 88–98. DOI: <a href="https://doi.org/10.1109/QSW62656.2024.00023" target="_blank" rel="noopener">10.1109/QSW62656.2024.00023</a></li>
+          <li id="qgan-ref-10"><span class="n">10</span>Chen, C.; Zhao, Q.; Zhou, M.; He, Z.; Sun, Z.; Situ, H. Quantum Generative Diffusion Model: A Fully Quantum-Mechanical Model for Generating Quantum State Ensemble. <em>arXiv preprint</em> 2024. DOI: <a href="https://doi.org/10.48550/arXiv.2401.07039" target="_blank" rel="noopener">10.48550/arXiv.2401.07039</a></li>
+          <li id="qgan-ref-11"><span class="n">11</span>Zhang, B.; Xu, P.; Chen, X.; Zhuang, Q. Generative Quantum Machine Learning via Denoising Diffusion Probabilistic Models. <em>Phys. Rev. Lett.</em> 2024, 132, 100602. DOI: <a href="https://doi.org/10.1103/PhysRevLett.132.100602" target="_blank" rel="noopener">10.1103/PhysRevLett.132.100602</a></li>
+          <li id="qgan-ref-12"><span class="n">12</span>De Falco, F.; Ceschini, A.; Sebastianelli, A.; et al. Quantum Latent Diffusion Models. <em>Quantum Mach. Intell.</em> 2024, 6, 85. DOI: <a href="https://doi.org/10.1007/s42484-024-00224-6" target="_blank" rel="noopener">10.1007/s42484-024-00224-6</a></li>
+          <li id="qgan-ref-13"><span class="n">13</span>De Falco, F.; Ceschini, A.; Sebastianelli, A.; Le Saux, B.; Panella, M. Quantum Hybrid Diffusion Models for Image Synthesis. <em>KI – Künstliche Intelligenz</em> 2024, 38, 311–326. DOI: <a href="https://doi.org/10.1007/s13218-024-00858-5" target="_blank" rel="noopener">10.1007/s13218-024-00858-5</a></li>
+          <li id="qgan-ref-14"><span class="n">14</span>Bravo-Prieto, C.; Baglio, J.; Cè, M.; Francis, A.; Grabowska, D.; Carrazza, S. Style-based quantum generative adversarial networks for Monte Carlo events. <em>Quantum</em> 2022, 6. DOI: <a href="https://doi.org/10.22331/q-2022-08-17-777" target="_blank" rel="noopener">10.22331/q-2022-08-17-777</a></li>
+          <li id="qgan-ref-15"><span class="n">15</span>Baglio, J.; Haddad, Y.; Polifka, R. Latent-Style-Based Generative Quantum Model for Assisted Drug Discovery. Research Highlights at the first conference for Applied Quantum Methods in Computational Science and Engineering (AQMCSE 2025, Aachen, Germany, 8–10 October 2025) (pre-print expected 2026).</li>
+        </ol>
+      </article>
+      <article class="topic-panel" id="computational-chemistry" hidden>
+        <h2>Computational chemistry for MRI</h2>
+        <p>Current literature reveals rapid advances in safer, high-performance MRI contrast agents, ranging from macrocyclic Gd<sup><a href="#ccm-ref-1">1</a>&#8201;<a href="#ccm-ref-2">2</a></sup> complexes and Mn-based agents, to targeted ligands and nanoparticles (primarily iron oxide nanoparticles made of magnetite). In general though, the field still suffers from poor standardization, inconsistent characterization and a persistent gap between promising laboratory results and actual clinical translation.</p>
+        <p>Machine learning (ML) models are now frequently being used to facilitate the design and discovery of novel molecules and reduce the experimental workload. These typically look to identify the main features affecting the performance of the contrast agents, but only a handful of studies have attempted to use ML models to predict relaxivity. Robust, validated frameworks necessitate quantum-informed descriptors, consistent simulation workflows and multiscale data integration. The latter requisites are rarely found in combination in the literature, with most investigations focusing on isolated layers of the problem without combining them into a unified workflow.</p>
+        <p>Switzerland has developed an internationally recognised research landscape in MRI contrast agent development, with one of the main contributions coming from EPFL, which established the core principles of relaxivity, water exchange kinetics and electron-spin relaxation. ETH Zürich and Empa (Swiss Federal Laboratories for Materials Science and Technology) have also significantly advanced magnetic nanoparticle engineering, surface-functionalization strategies, and bio–nano interactions, shaping Switzerland’s expertise in translational nanomedicine. The <strong>Uni Fribourg</strong> team are experts in iron oxide magnetic nanomaterials, evidenced by their highly cited publications covering biomedical applications, in vivo/in vitro behavior and advanced in-silico modeling.<sup><a href="#ccm-ref-3">3</a>&#8201;<a href="#ccm-ref-4">4</a>&#8201;<a href="#ccm-ref-5">5</a>&#8201;<a href="#ccm-ref-6">6</a></sup> Their recent paper<sup><a href="#ccm-ref-7">7</a></sup> reported on how ML models (built from detailed surface-chemistry descriptors) can be used to predict the toxicity of iron oxide magnetic nanoparticles. ML models typically address stability or structural features; no existing studies combine surface chemistry, toxicity and relaxivity into a single predictive framework.</p>
+        <p>Fleck will be the first project to integrate quantum-derived descriptors, molecular dynamics sampling, free-energy calculations and QML models into a single design loop for MRI contrast agents and their conjugates. For Gd- and Mn- drug conjugates and targeted theranostic systems, data and predictive tools are, at present, particularly scarce, presenting the opportune moment for this contribution to plug the research gap.</p>
+
+        <ol class="refs">
+          <li id="ccm-ref-1"><span class="n">1</span>Jian, Y.; Cai, Z.; Ding, Y.; et al. New Chiral Pyclen-Based Gadolinium(III) Complexes: Advancing Stability, Relaxivity, and Water Exchange for Improved Magnetic Resonance Imaging Probes. <em>J. Med. Chem.</em> 2025, <em>68</em> (14), 14254–14270. DOI: <a href="https://doi.org/10.1021/acs.jmedchem.5c01234" target="_blank" rel="noopener">10.1021/acs.jmedchem.5c01234</a></li>
+          <li id="ccm-ref-2"><span class="n">2</span>Ding, Y.; Ruan, X.; Shu, K.; et al. Rational Design of Mono-Substituted Gd-DOTA as Highly Stable and Efficient MRI Contrast Agents for Hepatobiliary and Inflammation Imaging. <em>J. Med. Chem.</em> 2024, 67 (17), 15476–15493. DOI: <a href="https://doi.org/10.1021/acs.jmedchem.4c00567" target="_blank" rel="noopener">10.1021/acs.jmedchem.4c00567</a></li>
+          <li id="ccm-ref-3"><span class="n">3</span>Montiel Schneider, M. G.; Martín, M. J.; Otarola, J.; Vakarelska, E.; Simeonov, V.; Lassalle, V.; Nedyalkova, M. Biomedical Applications of Iron Oxide Nanoparticles: Current Insights Progress and Perspectives. <em>Pharmaceutics</em> 2022, 14 (1), 204. DOI: <a href="https://doi.org/10.3390/pharmaceutics14010204" target="_blank" rel="noopener">10.3390/pharmaceutics14010204</a></li>
+          <li id="ccm-ref-4"><span class="n">4</span>Nedyalkova, M.; Donkova, B.; Romanova, J.; Tzvetkov, G.; Madurga Díez, S.; Simeonov, V. Iron oxide nanoparticles — In vivo/in vitro biomedical applications and in silico studies. <em>Adv. Colloid Interface Sci.</em> 2017, 249, 192–212. DOI: <a href="https://doi.org/10.1016/j.cis.2017.05.003" target="_blank" rel="noopener">10.1016/j.cis.2017.05.003</a></li>
+          <li id="ccm-ref-5"><span class="n">5</span>Medinger, J.; Nedyalkova, M.; Lattuada, M. Solvothermal Synthesis Combined with Design of Experiments—Optimization Approach for Magnetite Nanocrystal Clusters. <em>Nanomaterials</em> 2021, 11 (2), 360. DOI: <a href="https://doi.org/10.3390/nano11020360" target="_blank" rel="noopener">10.3390/nano11020360</a></li>
+          <li id="ccm-ref-6"><span class="n">6</span>Nedyalkova, M.; Medinger, J.; Mirabello, G.; Lattuada, M. Iron Oxide Magnetic Aggregates: Aspects of Synthesis, Computational Approaches and Applications. <em>Adv. Colloid Interface Sci.</em> 2024, 323, 103056. DOI: <a href="https://doi.org/10.1016/j.cis.2023.103056" target="_blank" rel="noopener">10.1016/j.cis.2023.103056</a></li>
+          <li id="ccm-ref-7"><span class="n">7</span>Vakarelska, E.; Nedyalkova, M.; Vasighi, M.; Simeonov, V. Persistent organic pollutants (POPs) — QSPR classification models by means of machine learning strategies. <em>Chemosphere</em> 2022, 287 (Pt 2), 132189. DOI: <a href="https://doi.org/10.1016/j.chemosphere.2021.132189" target="_blank" rel="noopener">10.1016/j.chemosphere.2021.132189</a></li>
+        </ol>
+      </article>
+      <article class="topic-panel" id="hybrid-quantum-ai" hidden>
+        <h2>Hybrid quantum-AI platform</h2>
+        <figure class="float-fig">
+          <img src="stack.png" alt="The Fleck software stack: code and execution scripts from a common open-source GitHub repository feed into a layered stack of MLFlow, Ray and Auth, and Kubernetes, with S3 storage alongside, running on CPU, memory, GPU and QPU resources.">
+          <figcaption>A schematic of the open-source software stack that will be implemented to orchestrate quantum-AI workloads in a single execution.</figcaption>
+        </figure>
+        <p>To the best of our knowledge, Amazon Braket Hybrid Jobs<sup><a href="#hyb-ref-1">1</a></sup> by Amazon Web Services (AWS) is the only commercial vendor to provide hybrid quantum-AI solutions in one workflow in a style most comparable to ours. Azure Quantum (Microsoft) offers “hybrid quantum computing”, which means something a little different and does not include AI or ML integration: “the classical code controls the execution of quantum operations based on mid-circuit measurements.”<sup><a href="#hyb-ref-2">2</a></sup> Neither of these are open source and neither is free. Google’s TensorFlow Quantum<sup><a href="#hyb-ref-3">3</a></sup> (developed with the TensorFlow team) allows developers to define quantum layers in classical neural networks to create a blended quantum-classical ML model, but does not allow one to orchestrate purely quantum circuits followed by purely classical ML models; moreover, in the last 5 years most ML experts have stopped using TensorFlow for their models.</p>
+        <p>For QPU or simulator use on AWS, one pays per shot, per task (or the corresponding reservation fees); for Microsoft, QPU time via partner providers must be paid separately, and those providers set their own pricing. Although there have been advances in quantum–AI workload scheduling, secure data management and scalable cloud architectures, full integration remains an open challenge due to hardware heterogeneity and limited standardisation—to use Azure Quantum, for instance, one is obliged to submit code in Microsoft’s proprietary programming language Q#.</p>
+        <p>There is currently no centralised quantum computing platform in Switzerland and there are no domestic quantum solutions with AI integration.</p>
+        <p>Fleck will be the first quantum computing platform in Switzerland to include full AI integration with quantum modalities and the first in the world to provide the code for the quantum-AI single job execution as open-source, the latter of which acknowledges the barrier posed to researchers worldwide who are otherwise limited by financial resources. Unlike Amazon Braket Hybrid Jobs, which promises that, “Once the algorithm has completed, you can then retrieve the results,”<sup><a href="#hyb-ref-1">1</a></sup> our stack incorporates MLFlow—an open-source code which tracks algorithms and experiments in a way that is not dissimilar to Git versioning. This allows the weights, losses and so forth to be recorded live and then stored in memory (S3) for later analysis, and will be of great significance to our <strong>ETH</strong> partner, who intend on running a long loop oscillating between a quantum computation and an ML algorithm; collecting time-stamped results will be indispensable for checking the code and catching any errors. AWS only offer monitoring through another proprietary paid service, SageMaker,<sup><a href="#hyb-ref-4">4</a></sup> which can track some (e.g., TensorFlow, PyTorch, MXNet, scikit-learn) but not all ML models. On the other hand, MLFlow is completely framework-agnostic, offers experiment tracking and model management, can integrate with any infrastructure or cloud and is free of charge.</p>
+
+        <ol class="refs">
+          <li id="hyb-ref-1"><span class="n">1</span>Amazon Web Services. Amazon Braket Jobs. <em>AWS Developer Guide</em>, n.d. <a href="https://docs.aws.amazon.com/braket/latest/developerguide/braket-jobs.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/braket/latest/developerguide/braket-jobs.html</a>.</li>
+          <li id="hyb-ref-2"><span class="n">2</span>Microsoft. “Hybrid Quantum Computing Overview.” <em>Microsoft Learn</em>. <a href="https://learn.microsoft.com/en-us/azure/quantum/hybrid-computing-overview" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/azure/quantum/hybrid-computing-overview</a>.</li>
+          <li id="hyb-ref-3"><span class="n">3</span>Google. “TensorFlow Quantum.” <em>TensorFlow</em>. <a href="https://www.tensorflow.org/quantum" target="_blank" rel="noopener">https://www.tensorflow.org/quantum</a>.</li>
+          <li id="hyb-ref-4"><span class="n">4</span>Sauerwein, D.; Furrer, F. Tracking Quantum Experiments with Amazon Braket Hybrid Jobs and Amazon SageMaker Experiments. <em>AWS Quantum Technologies Blog</em>, 3 May 2023. <a href="https://aws.amazon.com/blogs/quantum-computing/tracking-quantum-experiments-with-amazon-braket-hybrid-jobs-and-amazon-sagemaker-experiments/" target="_blank" rel="noopener">https://aws.amazon.com/blogs/quantum-computing/tracking-quantum-experiments-with-amazon-braket-hybrid-jobs-and-amazon-sagemaker-experiments/</a></li>
+        </ol>
+      </article>
+      <article class="topic-panel" id="glossary" hidden>
+        <h2>Glossary</h2>
+        <h3 class="gl-h">Terms</h3>
+        <dl class="glossary">
+          <dt>Binding affinity</dt><dd>The strength of the interaction between a drug and its target, influencing the drug’s distribution and potential to become trapped in tissues and thereby governing its overall effectiveness.</dd>
+          <dt>Complex</dt><dd>(noun) A chemical compound that has a central metal atom or ion.</dd>
+          <dt>Emulator</dt><dd>A classical computer running software that simulates the execution of a quantum circuit with full consideration given to the underlying physics of a specific quantum computing device. It thus includes a much deeper understanding of the lowest-level operations of such a device and is more demanding to run as a consequence.</dd>
+          <dt>FAIR</dt><dd>Data that meet the principles of “Findable, Accessible, Interoperable and Reusable”.</dd>
+          <dt>GAN</dt><dd>(Generative adversarial network) A set of two neural networks competing against each other: the generator network and the discriminator network. The role of the discriminator is to distinguish between real (input) data and fake (generated) data coming from the generator. The goal of the generator is to create fake data (which looks like real data) from an input of random noise. The training is an adversarial game until (ideally) a Nash equilibrium is reached: the discriminator has a 50% chance of distinguishing between real and generated data, indicating that the generator is faking data so well that it is undetectable.</dd>
+          <dt>Glioblastoma</dt><dd>A type of extremely invasive brain cancer—a malignant tumour of the glial tissue in the brain.</dd>
+          <dt>Latent space</dt><dd>Abstract mathematical space in which the input real-world data is encoded into a vector of numbers. The latent space is particularly useful for quantum networks as it helps to compress the complex input data into low-dimensional vectors, suitable for working with a limited number of qubits.</dd>
+          <dt>Phantom</dt><dd>A specially designed object (as opposed to human tissue) that is imaged in MRI to evaluate, analyse and calibrate the scanner.</dd>
+          <dt>qGAN</dt><dd>(Quantum GAN) A GAN where either the discriminator, the generator, or both, are replaced by a quantum neural network. Fleck uses a hybrid qGAN where the discriminator is a classical neural network and the generator is a quantum network.</dd>
+          <dt>QM/MM</dt><dd>(Quantum mechanics/molecular mechanics) A hybrid computational method that treats a small, chemically active region of a system with quantum mechanics, while the rest of the system is treated with computationally faster classical molecular mechanics.</dd>
+          <dt>Relaxometry</dt><dd>A measurement of tissue’s magnetic resonance relaxation properties, such as T2, T2* and T1.</dd>
+          <dt>Simulator</dt><dd>A classical computer running software that simulates the execution of a quantum circuit in a fashion that is agnostic to the underlying physics of the quantum computer. It can run simulations on state vectors or on density matrices and include errors.</dd>
+          <dt>Single-reference coupled cluster theory</dt><dd>A quantum chemistry method to describe how the electrons in a molecule behave by describing the system’s wave function as a mathematical correction (cluster operator) applied to a basic starting electron configuration.</dd>
+          <dt>Style-based approach</dt><dd>A technique inspired by classical AI where the input random noise of the quantum generator in qGANs is inserted in every gate of the quantum network and not only in the first layer of gates. This is an instance of data re-uploading where the input of the generator (the noise) is inserted everywhere in the network. It has been shown to extend the capabilities and accuracy of qGANs.</dd>
+          <dt>Theranostic</dt><dd>A combination of diagnosis and therapy to treat a disease in a single medical intervention.</dd>
+          <dt>VQE</dt><dd>(Variational quantum eigensolver) A hybrid algorithm in chemistry that uses both classical computers and quantum computers to find the ground state of a given physical system.</dd>
+        </dl>
+        <h3 class="gl-h">Abbreviations</h3>
+        <dl class="glossary abbr">
+          <dt>AI</dt><dd>Artificial intelligence</dd>
+          <dt>API</dt><dd>Application programming interface</dd>
+          <dt>CMOS</dt><dd>Complementary metal-oxide semiconductor</dd>
+          <dt>EGFR</dt><dd>Epidermal growth factor receptor</dd>
+          <dt>Gd</dt><dd>Gadolinium</dd>
+          <dt>HPC</dt><dd>High-performance computing</dd>
+          <dt>(Q)ML</dt><dd>(Quantum) machine learning</dd>
+          <dt>Mn</dt><dd>Manganese</dd>
+          <dt>MRI</dt><dd>Magnetic resonance imaging</dd>
+          <dt>QC</dt><dd>Quantum computing</dd>
+          <dt>QPU</dt><dd>Quantum processing unit</dd>
+          <dt>ULF</dt><dd>Ultra-low field</dd>
+        </dl>
+      </article>
+      <article class="topic-panel" id="biomolecular-recognition" hidden>
+        <h2>Quantum computation of biomolecular recognition</h2>
+        <p>Biomolecular recognition describes the interaction of biomolecules in organisms—typically of a small molecule bound to a target protein. This interaction can be quantified by the free energy of ligand binding, which is computed by sampling molecular configuration space, for which standard classical approaches have been developed in the last few decades.<sup><a href="#bmr-ref-1">1</a>&#8201;<a href="#bmr-ref-2">2</a></sup> The accuracy and hence reliability of these free-energy-of-binding predictions depends on the underlying potential energy surface, which is often provided by a tailored classical force field.<sup><a href="#bmr-ref-3">3</a></sup> A quantum description is, in principle, more reliable and applicable to all types of molecules without pre-parametrisation.</p>
+        <p>For quantum computations, the variational quantum eigensolver (VQE) has been the workhorse algorithm for current small-size quantum computers,<sup><a href="#bmr-ref-4">4</a></sup> but it has become clear that VQE-based quantum algorithms suffer from various severe drawbacks<sup><a href="#bmr-ref-5">5</a></sup> that will require one to turn to quantum phase estimation (QPE) based quantum algorithms on future fault-tolerant quantum hardware. QPE-based quantum energy measurements are typically considered for strongly correlated electronic structure problems, such as the notorious example of the <em>mode of action</em> (MoA) of nitrogenase.<sup><a href="#bmr-ref-6">6</a></sup> In all cases, any atomistic quantum simulations will always be restricted to a small number of atoms (compared to the huge number of atoms contained in a large protein). Accordingly, embedding approaches will thus always be required to exploit local quantum information within a biological macromolecule. Essentially this situation demands the unification of various traditional approaches in order to establish free energy calculations on a quantum computer, several attempts at which were published in 2025.<sup><a href="#bmr-ref-7">7</a>&#8201;<a href="#bmr-ref-8">8</a>&#8201;<a href="#bmr-ref-9">9</a></sup></p>
+        <p>Out of all existing approaches to compute biomolecular free energies of ligand binding, the FreeQuantum pipeline<sup><a href="#bmr-ref-10">10</a></sup> developed by consortium partner <strong>ETH</strong>, University of Copenhagen and MIT, is the most operationally mature. It is a unique accomplishment worldwide and the teams behind these ideas have recently received global recognition as finalists (team Q4proteins) in the XPRIZE competition.<sup><a href="#bmr-ref-11">11</a></sup></p>
+        <p>Fleck will be the first platform and infrastructure on which the FreeQuantum software will be available to execute by anyone in the world (developed by the Reiher group at <strong>ETH</strong> together with the University of Copenhagen and MIT). An implementation of the FreeQuantum pipeline within Fleck will allow users to obtain Hamiltonians which represent fully embedded fractions of biomolecules (on traditional HPC hardware) and which can then be loaded onto quantum computers through interfaces developed by <strong>QuantumBasel</strong>. Various technical challenges, interface structures and algorithmic developments will be necessary to establish such a tool. Their development will be carried out along the application put forward by the <strong>Uni Fribourg</strong> node. In particular, the most promising Gd-drug conjugates identified by <strong>Uni Basel</strong> will be modelled with quantum embedding methods available through FreeQuantum. The results of the latter branch will be integrated into the augmented database for ML refinement by <strong>Uni Fribourg</strong>.</p>
+
+        <ol class="refs">
+          <li id="bmr-ref-1"><span class="n">1</span>Peccati, F.; Fragai, M.; Luchinat, C.; Parigi, G.; Secundo, F. Enthalpy–Entropy Compensation in Biomolecular Recognition. <em>ACS Omega</em> 2021, 6, 12447–12458. DOI: <a href="https://doi.org/10.1021/acsomega.1c00485" target="_blank" rel="noopener">10.1021/acsomega.1c00485</a></li>
+          <li id="bmr-ref-2"><span class="n">2</span>Lee, T.-S.; Allen, B. K.; Giese, T. J.; Guo, Z.; Li, P.; Lin, C.; McGee, T. D.; Pearlman, D. A.; Radak, B. K.; Tao, Y.; Tsai, H.-C.; Xu, H.; Sherman, W.; York, D. M. Alchemical binding free energy calculations in AMBER20: Advances and best practices for drug discovery. <em>Journal of Chemical Information and Modeling</em> 2020, 60, 5595–5623. DOI: <a href="https://doi.org/10.1021/acs.jcim.0c00613" target="_blank" rel="noopener">10.1021/acs.jcim.0c00613</a></li>
+          <li id="bmr-ref-3"><span class="n">3</span>van Gunsteren, W. F.; Daura, X.; Hansen, N.; Mark, A. E.; Oostenbrink, C.; Riniker, S.; Smith, L. J. Validation of molecular simulation: An overview of issues. <em>Angewandte Chemie – International Edition</em> 2018, 57, 884–902. DOI: <a href="https://doi.org/10.1002/anie.201702945" target="_blank" rel="noopener">10.1002/anie.201702945</a></li>
+          <li id="bmr-ref-4"><span class="n">4</span>Tilly, J. <em>et al.</em> The Variational Quantum Eigensolver: A review of methods and best practices. <em>Physics Reports</em> 2022, 986, 1–128. DOI: <a href="https://doi.org/10.1016/j.physrep.2022.08.003" target="_blank" rel="noopener">10.1016/j.physrep.2022.08.003</a></li>
+          <li id="bmr-ref-5"><span class="n">5</span>Patra, C.; Maitra, R. Energy landscape plummeting in variational quantum eigensolver: Subspace optimization, non-iterative corrections, and generator-informed initialization for improved quantum efficiency. <em>The Journal of Chemical Physics</em> 2025, 163, 024112. DOI: <a href="https://doi.org/10.1063/5.0276415" target="_blank" rel="noopener">10.1063/5.0276415</a></li>
+          <li id="bmr-ref-6"><span class="n">6</span>Reiher, M.; Wiebe, N.; Svore, K. M.; Wecker, D.; Troyer, M. Elucidating Reaction Mechanisms on Quantum Computers. <em>Proc. Natl. Acad. Sci. U. S. A.</em> 2017, 114 (29), 7555–7560. DOI: <a href="https://doi.org/10.1073/pnas.1619152114" target="_blank" rel="noopener">10.1073/pnas.1619152114</a></li>
+          <li id="bmr-ref-7"><span class="n">7</span>Bickley, T. M. <em>et al.</em> Extending quantum computing through subspace, embedding and classical molecular dynamics techniques. <em>Digital Discovery</em> 2025, 4, 3427–3444. DOI: <a href="https://doi.org/10.1039/D5DD00225G" target="_blank" rel="noopener">10.1039/D5DD00225G</a></li>
+          <li id="bmr-ref-8"><span class="n">8</span>Ettenhuber, P.; Hansen, M. B.; Poier, P. P.; Shaik, I.; Rasmussen, S. E.; Madsen, N. K.; Majland, M.; Jensen, F.; Olsen, L.; Zinner, N. T. Calculating the Energy Profile of an Enzymatic Reaction on a Quantum Computer. <em>Journal of Chemical Theory and Computation</em> 2025, 21, 3493–3503. DOI: <a href="https://doi.org/10.1021/acs.jctc.5c00022" target="_blank" rel="noopener">10.1021/acs.jctc.5c00022</a></li>
+          <li id="bmr-ref-9"><span class="n">9</span>Chaudhuri, S. <em>et al.</em> Challenges and Advances in the Simulation of Targeted Covalent Inhibitors Using Quantum Computing. <em>The Journal of Physical Chemistry Letters</em> 2025, 16, 8536–8545. DOI: <a href="https://doi.org/10.1021/acs.jpclett.5c01680" target="_blank" rel="noopener">10.1021/acs.jpclett.5c01680</a></li>
+          <li id="bmr-ref-10"><span class="n">10</span>Günther, J.; Weymuth, T.; Bensberg, M.; Witteveen, F.; Teynor, M. S.; Thomasen, F. E.; Sora, V.; Bro-Jørgensen, W.; Husistein, R. T.; Eraković, M.; Miller, M.; Weisburn, L.; Cho, M.; Eckhoff, M.; Harrow, A. W.; Krogh, A.; Van Voorhis, T.; Lindorff-Larsen, K.; Solomon, G.; Reiher, M.; Christandl, M. How to use quantum computers for biomolecular free energies. <em>arXiv preprint</em>. DOI: <a href="https://doi.org/10.48550/arXiv.2506.20587" target="_blank" rel="noopener">10.48550/arXiv.2506.20587</a></li>
+          <li id="bmr-ref-11"><span class="n">11</span>XPRIZE Quantum Applications competition. XPRIZE Foundation, XPRIZE Quantum Applications – a global competition to generate practical quantum computing algorithms to tackle real-world challenges, <a href="https://www.xprize.org/competitions/qc-apps" target="_blank" rel="noopener">https://www.xprize.org/competitions/qc-apps</a>.</li>
+        </ol>
+      </article>
+      <article class="topic-panel" id="quantum-computer" hidden>
+        <h2>Hardware</h2>
+        <p>Quantum computing hardware and emulators have become available through the cloud through a mix of proprietary access portals managed by individual vendors (e.g., IBM, AQT) and multi-platform providers such as Amazon AWS, Microsoft Azure, PinQ or OVHcloud. Other public bodies such as the LRZ (Leibniz Supercomputing Centre) in Munich provide access to quantum computers for the research community in Germany. These systems range in price, qubit count and data security, with machines ranging from 6 qubits to 120 across various platforms. In terms of trapped ion quantum computers, there is no cloud system based on a scalable architecture that is in line with the roadmaps of major vendors towards quantum utility.</p>
+        <p><strong>ZuriQ</strong> is the only company in the world producing a 2D ion-trap quantum computer based on the Penning trap. The leading providers Quantinuum (USA) and IonQ (USA) have begun their own development of 2D systems, however these approaches inherently suffer from several scalability limitations resulting from the radio-frequency (rf) electric fields necessary to trap the ions. The rf fields restrict ion movement to 1-dimensional translations and leave large chip areas inaccessible, which significantly reduces qubit density per unit area. Moreover, any misalignment of ions from the null of the rf field—caused by uncompensated stray fields which are common and non-uniform across the chip—exposes the ions to the rf field, which degrades the fidelity of quantum operations. Looking forward, this imposes extreme demands on fabrication tolerances when integrating optical elements such as grating outcouplers, which must precisely focus laser light at the rf null to maintain the fidelity at a high level.</p>
+        <figure class="topic-fig">
+          <img src="penning.png" alt="Side-by-side diagrams of (a) the Penning-QCCD architecture, a uniform grid of dc electrodes with mode-coupling electrodes where ions move freely and merge, and (b) the rf QCCD architecture, where ions are confined to rf null lines and junctions between rf electrodes. Insets show merge and swap operations.">
+          <figcaption>Comparison between (a) the Penning-QCCD architecture developed by ZuriQ and (b) the rf QCCD architecture adopted by other vendors. The Penning architecture allows operations without rf electrodes, addressing the limitations of current technology: ions can be freely shuttled in 3D and merged for quantum gate operations, without being limited to rf null lines and junctions. This allows full reconfigurability, higher qubit density during storage, lower operational overhead and lower heating.</figcaption>
+        </figure>
+        <p>Finally, the rf signals (&gt;&nbsp;70&nbsp;V amplitude) dissipate power into the substrate, causing substantial heating. This is particularly problematic when chips are fabricated using standard CMOS processes, since silicon exhibits a high loss tangent at cryogenic operating temperatures. By replacing the rf fields with a large and static magnetic field, the Penning trap method eliminates these constraints and is thus a much more natural platform for 2D ion arrays, with the potential to achieve an order of magnitude greater qubit density.<sup><a href="#qc-ref-1">1</a></sup></p>
+        <p>ZuriQ is the only Swiss company producing commercial quantum computers and at present there is no Swiss quantum computer hosted on a cloud service. There is also no public cloud infrastructure that is accessible to public researchers along the lines of the LRZ model. The only single access point to locally installed quantum resources is through <strong>QuantumBasel</strong>, which has an IonQ trapped ion quantum computer with 36 qubits based on a non-scalable architecture installed on-premise. The last call for 1D (line) ion trap architectures is already chiming and their development has been abandoned by IonQ<sup><a href="#qc-ref-2">2</a></sup> and Quantinuum<sup><a href="#qc-ref-3">3</a></sup> in their roadmaps. At the time of writing, QuantumBasel is the only European company to sell pure access to both trapped-ion (IonQ, 36 qubits) and superconducting quantum computers (IBM Heron, 156 qubits), and the only company in the world to provide access to gate-based and annealing quantum computers (D-Wave) directly.</p>
+        <p>Other quantum hardware modalities are also being developed in Switzerland: the National Centre of Competence in Research Spin Qubits in Silicon (NCCR SPIN), headquartered at the University of Basel, is focussed on creating spin qubits using silicon and germanium to build a quantum computer. In 2024 the project demonstrated a single two-qubit gate,<sup><a href="#qc-ref-4">4</a></sup> but the technology is still some way away from leaving the university environment.</p>
+        <p>Fleck will contribute to the development of the first commercial sovereign Swiss quantum computer, and the world’s first 2D Penning trap ion quantum computer.</p>
+
+        <ol class="refs">
+          <li id="qc-ref-1"><span class="n">1</span>Jain, S.; Sägesser, T.; Hrmo, P.; Torkzaban, C.; Stadler, M.; Oswald, R.; Axline, C.; Bautista-Salvador, A.; Ospelkaus, C.; Kienzler, D.; Home, J. Penning micro-trap for quantum computing. <em>Nature</em> 2024, 627, 510–514. DOI: <a href="https://doi.org/10.1038/s41586-024-07111-x" target="_blank" rel="noopener">10.1038/s41586-024-07111-x</a></li>
+          <li id="qc-ref-2"><span class="n">2</span>IonQ. “IonQ’s Accelerated Roadmap: Turning Quantum Ambition into Reality.” <a href="https://ionq.com/blog/ionqs-accelerated-roadmap-turning-quantum-ambition-into-reality" target="_blank" rel="noopener">https://ionq.com/blog/ionqs-accelerated-roadmap-turning-quantum-ambition-into-reality</a>.</li>
+          <li id="qc-ref-3"><span class="n">3</span>Quantinuum. Quantinuum unveils accelerated roadmap to achieve universal, fully fault-tolerant quantum computing by 2030. <em>Quantinuum Press Release</em>, 10 September 2024. <a href="https://www.quantinuum.com/press-releases/quantinuum-unveils-accelerated-roadmap-to-achieve-universal-fault-tolerant-quantum-computing-by-2030" target="_blank" rel="noopener">https://www.quantinuum.com/press-releases/quantinuum-unveils-accelerated-roadmap-to-achieve-universal-fault-tolerant-quantum-computing-by-2030</a></li>
+          <li id="qc-ref-4"><span class="n">4</span>Geyer, S.; Hetényi, B.; Bosco, S.; Camenzind, L. C.; Eggli, R. S.; Fuhrer, A.; Loss, D.; Warburton, R. J.; Zumbühl, D. M.; Kuhlmann, A. V. Anisotropic exchange interaction of two hole-spin qubits. <em>Nature Physics</em> 2024, 20, 1152–1157. DOI: <a href="https://doi.org/10.1038/s41567-024-02481-5" target="_blank" rel="noopener">10.1038/s41567-024-02481-5</a></li>
+        </ol>
+      </article>
+      <article class="topic-panel" id="ulf-mri" hidden>
+        <h2>Ultra-low field magnetic resonance imaging</h2>
+        <p>Globally, ultra-low-field (ULF) MRI is a rapidly advancing research domain driven by breakthroughs in cryogen-free magnetics, advanced noise cancellation and quantum-inspired detection technologies. No standardized ULF relaxometry methodology exists, and nanoparticle contrast agents are still optimized exclusively at clinical field strengths (1.5–7&nbsp;T), where relaxation mechanisms differ fundamentally from ULF. Phantom designs, when available, lack reproducibility and do not reflect nanoparticle binding behavior. Thus, despite significant progress, there is no validated pipeline connecting phantom characterization, ULF relaxometry sequences, and predictive quantum modeling of nanoparticle relaxation.</p>
+        <p><strong>Multiwave Technologies</strong> is the only Swiss company producing ULF MRI scanners. Switzerland leads biomedical imaging innovation, with important contributions and advances in MRI and nanomedicine coming from EPFL and ETH Zürich. Targeted complexes, precision relaxometry and model-based reconstruction are strong national competencies, but despite this, ULF relaxometry with protein-specific metal-based contrast agents remains unaddressed, with no validated phantom standards. Establishing Swiss capability here presents a timely leadership opportunity in a strategically emerging field.</p>
+      </article>
     </div>
-    <p class="coming-soon">Coming soon: intros to the fundamental topics in the Fleck project.</p>
+    </div>
+    </div>
   </div>
 </main>
 
@@ -286,6 +544,121 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
       li.querySelector('.menu-btn').setAttribute('aria-expanded', 'false');
     });
   });
+</script>
+<script>
+  // Learn page: clicking a topic button shows its panel (also works with links like learn.html#qgan)
+  (function () {
+    var btns = document.querySelectorAll('.topics a');
+    var panels = document.querySelectorAll('.topic-panel');
+    var intro = document.getElementById('learn-intro');
+    function show(id) {
+      var found = false;
+      panels.forEach(function (p) { var on = p.id === id; p.hidden = !on; if (on) found = true; });
+      btns.forEach(function (b) { b.classList.toggle('active', b.getAttribute('href') === '#' + id); });
+      if (intro) intro.hidden = found;
+    }
+    function fromHash() {
+      var h = location.hash.slice(1);
+      var m = h.match(/^(.+)-ref-\d+$/);
+      var map = { ccm: 'computational-chemistry', bmr: 'biomolecular-recognition', qc: 'quantum-computer', hyb: 'hybrid-quantum-ai' };
+      if (m) { show(map[m[1]] || m[1]); return; }
+      show(h);
+    }
+    window.addEventListener('hashchange', fromHash);
+    fromHash();
+  })();
+</script>
+<script>
+  // Glossary pop-ups: terms from the Glossary panel become clickable everywhere else on the page.
+  (function () {
+    var gl = document.querySelector('#glossary dl.glossary:not(.abbr)');
+    if (!gl) return;
+    var defs = {};
+    gl.querySelectorAll('dt').forEach(function (dt) { defs[dt.textContent.trim()] = dt.nextElementSibling.innerHTML; });
+    // How each glossary entry is spotted in running text. cs = case-sensitive.
+    var rules = [
+      ['Binding affinity', 'binding affinit(?:y|ies)'],
+      ['Complex', 'chemical complex(?:es)?|complexes'],
+      ['Emulator', 'emulators?'],
+      ['FAIR', 'FAIR', true],
+      ['qGAN', 'qGANs?', true],
+      ['GAN', 'GANs?', true],
+      ['Glioblastoma', 'glioblastoma'],
+      ['Latent space', 'latent space'],
+      ['Phantom', 'phantoms?'],
+      ['QM/MM', 'QM/MM', true],
+      ['Relaxometry', 'relaxometry'],
+      ['Simulator', 'simulators?'],
+      ['Single-reference coupled cluster theory', 'single-reference coupled cluster theory'],
+      ['Style-based approach', 'style-based(?: approach(?:es)?)?'],
+      ['Theranostic', 'theranostics?'],
+      ['VQE', 'variational quantum eigensolver(?: \\(VQE\\))?|VQE', false]
+    ].filter(function (r) { return defs[r[0]]; });
+    var ci = new RegExp('\\b(' + rules.filter(function (r) { return !r[2]; }).map(function (r) { return r[1]; }).join('|') + ')\\b', 'i');
+    var cs = new RegExp('\\b(' + rules.filter(function (r) { return r[2]; }).map(function (r) { return r[1]; }).join('|') + ')\\b');
+    function which(text) {
+      for (var i = 0; i < rules.length; i++) {
+        var re = new RegExp('^(?:' + rules[i][1] + ')$', rules[i][2] ? '' : 'i');
+        if (re.test(text)) return rules[i][0];
+      }
+    }
+    function firstMatch(t) {
+      var a = ci.exec(t), b = cs.exec(t);
+      if (a && b) return a.index <= b.index ? a : b;
+      return a || b;
+    }
+    var skip = 'A,BUTTON,SUP,H2,H3,FIGCAPTION,DT,DD,OL,SCRIPT';
+    // Link only the first occurrence of each term within each topic.
+    document.querySelectorAll('.topic-panel:not(#glossary)').forEach(function (panel) {
+      var seen = {};
+      panel.querySelectorAll('p').forEach(function (p) {
+        var walker = document.createTreeWalker(p, NodeFilter.SHOW_TEXT, {
+          acceptNode: function (n) {
+            for (var e = n.parentNode; e && e !== p; e = e.parentNode) if (skip.indexOf(e.nodeName) > -1) return NodeFilter.FILTER_REJECT;
+            return NodeFilter.FILTER_ACCEPT;
+          }
+        });
+        var nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+        nodes.forEach(function (node) {
+          var from = 0;
+          while (true) {
+            var m = firstMatch(node.data.slice(from));
+            if (!m) break;
+            var term = which(m[0]);
+            var at = from + m.index;
+            if (!term || seen[term]) { from = at + m[0].length; continue; }
+            seen[term] = true;
+            var hit = node.splitText(at); node = hit.splitText(m[0].length); from = 0;
+            var b = document.createElement('button');
+            b.type = 'button'; b.className = 'gl-term'; b.dataset.term = term; b.textContent = hit.data;
+            hit.parentNode.replaceChild(b, hit);
+          }
+        });
+      });
+    });
+    var box = document.getElementById('gl-note'), panels = document.querySelector('.panels'), cur = null;
+    function close() { box.hidden = true; if (cur) cur.classList.remove('on'); cur = null; }
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('button.gl-term');
+      if (t) {
+        e.stopPropagation();
+        if (cur === t) { close(); return; }
+        if (cur) cur.classList.remove('on');
+        cur = t; t.classList.add('on');
+        box.querySelector('.gl-t').textContent = t.dataset.term;
+        box.querySelector('.gl-d').innerHTML = defs[t.dataset.term];
+        var panel = t.closest('.topic-panel');
+        var pr = panels.getBoundingClientRect(), tr = t.getBoundingClientRect();
+        box.style.top = Math.max(0, tr.top - pr.top - 12) + 'px';
+        box.hidden = false;
+        return;
+      }
+      if (e.target.closest('.gl-x') || (!e.target.closest('#gl-note') && !box.hidden)) close();
+    });
+    box.querySelector('.gl-more').addEventListener('click', close);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    window.addEventListener('hashchange', close);
+  })();
 </script>
 </body>
 </html>

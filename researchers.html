@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Staff · Fleck</title>
-<meta name="description" content="The staff of the Fleck consortium.">
+<title>People · Fleck</title>
+<meta name="description" content="The people of the Fleck consortium.">
 <meta property="og:title" content="Fleck: quantum computing for the life sciences">
 <meta property="og:description" content="An eight-party all-Swiss consortium applying quantum computing to contrast agent discovery, drug design and ULF-MRI brain cancer detection.">
 <meta property="og:type" content="website">
@@ -185,13 +185,15 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
 .person h3 { margin: 0 0 6px; font-size: 19px; font-weight: 800; }
 .person a { font-weight: 600; color: var(--ink); text-decoration-color: var(--pink); text-underline-offset: 3px; word-break: break-all; }
 
-.person-row { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; align-items: start; max-width: 880px; padding: 28px 0; border-bottom: 1px solid #eee; }
+.person-row { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 32px; align-items: start; max-width: 880px; padding: 28px 0; border-bottom: 1px solid #eee; }
 .person-row:first-child { padding-top: 0; }
-.person-row img { width: 200px; height: 250px; object-fit: cover; border-radius: 20px; display: block; }
+.person-row img { width: 160px; height: 200px; object-fit: cover; border-radius: 20px; display: block; }
 .person-row h3 { margin: 0 0 4px; font-size: 22px; font-weight: 800; letter-spacing: -.01em; }
 .person-row .role { color: var(--pink); font-weight: 600; font-size: 15px; margin: 0 0 14px; }
 .person-row p.bio { margin: 0; font-size: 15.5px; color: #333; }
-@media (max-width: 560px) { .person-row { grid-template-columns: 1fr; gap: 18px; } }
+.person-row .avatar { width: 160px; height: 200px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 44px; font-weight: 800; letter-spacing: -.02em; color: var(--ink); }
+.avatar.c0 { background: var(--pink-soft); } .avatar.c1 { background: var(--green-soft); } .avatar.c2 { background: #f8d2bd; } .avatar.c3 { background: var(--grey); }
+@media (max-width: 560px) { .person-row { grid-template-columns: 96px 1fr; gap: 16px; } .person-row img, .person-row .avatar { width: 96px; height: 120px; font-size: 30px; } }
 .placeholder { border: 2px dashed var(--grey); border-radius: 24px; padding: 32px; color: var(--muted); text-align: center; max-width: 760px; }
 
 @media (max-width: 860px) {
@@ -215,7 +217,7 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
         <button class="menu-btn active" type="button" aria-haspopup="true" aria-expanded="false">About <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <ul class="submenu">
           <li><a href="project.html">Project</a></li>
-          <li><a href="researchers.html" class="active" aria-current="page">Staff</a></li>
+          <li><a href="researchers.html" class="active" aria-current="page">People</a></li>
           <li><a href="consortium.html">Consortium</a></li>
         </ul>
       </li>
@@ -234,7 +236,7 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
       <circle cx="122" cy="52" r="9" fill="#ec6a2a"/>
       <circle cx="74" cy="56" r="6" fill="#4ca22f"/>
     </svg>
-    <h1>Staff</h1>
+    <h1>People</h1>
     <p>The people behind Fleck.</p>
   </div>
 
@@ -246,6 +248,94 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
         <h3>Yelena Guryanova, PhD</h3>
         <p class="role">Senior Research Associate, University of Basel</p>
         <p class="bio">Yelena Guryanova is the proposal's main applicant; she designed the Fleck project from scratch, connected the scientific and engineering ideas and assembled the consortium partners. Yelena is a theoretical physicist who specialises in quantum information. Her research interests include: quantum algorithms, quantum thermodynamics, causality and higher-order processes. In her career she has been main applicant on more than EUR 4.5 Mio in funding and prizes; she has organised at least four international conferences and manages an organisation to promote equal opportunities and diversity in quantum science.</p>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="avatar c0" aria-hidden="true">TA</div>
+      <div>
+        <h3>Tryfon Antonakakis, PhD</h3>
+        <p class="role">Co-founder and CEO, Multiwave Technologies</p>
+        <p class="bio">Tryfon Antonakakis is a force majeure; after calling it quits on a career in professional skiing, he pursued a PhD and postdoc in applied mathematics and decided to focus his energy on solving differential equations and inventing the world’s lightest portable ultra-low field MRI scanner, fields which are apparently easier to surmount than those covered in snow. He has participated in more than 15 funded European and Swiss R&amp;D projects, leading to the commercialisation of the MGNTQ™ scanner.</p>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="avatar c1" aria-hidden="true">JB</div>
+      <div>
+        <h3>Jonathan Bartoli</h3>
+        <p class="role">Head of Grants, Multiwave Technologies</p>
+        <p class="bio">Jonathan Bartoli has managed project grants over the last 15 years. Together with Yelena Guryanova and Tryfon Antonakakis, he forms the Fleck Management Team.</p>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="avatar c2" aria-hidden="true">JM</div>
+      <div>
+        <h3>Jan Mikolon</h3>
+        <p class="role">CTO, QuantumBasel</p>
+        <p class="bio">Jan Mikolon is focused on the practical applications of AI and quantum computing in industrial use cases. He previously held the post of Principal Data Scientist at IBM and led IBM’s Center for AI in Munich. He has vast experience in connecting emerging IT infrastructures, in particular quantum computing, to classical HPC environments.</p>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="avatar c3" aria-hidden="true">PH</div>
+      <div>
+        <h3>Pavel Hrmo, PhD</h3>
+        <p class="role">Co-founder and CEO, ZuriQ</p>
+        <p class="bio">Pavel Hrmo is building the first Swiss commercial 2D ion trap quantum computer and in 2025 led ZuriQ’s CHF 3.8M seed round, positioning the company to deliver its first prototype.</p>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="avatar c0" aria-hidden="true">TS</div>
+      <div>
+        <h3>Tobias Sägesser, PhD</h3>
+        <p class="role">CTO, ZuriQ</p>
+        <p class="bio">Tobias Sägesser is closely involved in the construction of ZuriQ’s quantum computer and received the 2025 doctoral thesis award from ETH Zürich.</p>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="avatar c1" aria-hidden="true">MR</div>
+      <div>
+        <h3>Prof. Markus Reiher</h3>
+        <p class="role">Group Leader, ETH Zürich</p>
+        <p class="bio">Markus Reiher is an accomplished computational chemist who became a member of the International Academy of Quantum Molecular Science in 2022. His work on nitrogenase with Microsoft Quantum in 2016 demonstrated the first real-world application of a new computing paradigm in the molecular and materials sciences.</p>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="avatar c2" aria-hidden="true">ML</div>
+      <div>
+        <h3>Prof. Marco Lattuada</h3>
+        <p class="role">Head of Chemistry Department and Group Leader, University of Fribourg</p>
+        <p class="bio">Marco Lattuada is an expert in colloidal and soft matter chemistry and coarse-grained simulations.</p>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="avatar c3" aria-hidden="true">MN</div>
+      <div>
+        <h3>Miroslava Nedyalkova, PhD</h3>
+        <p class="role">University of Fribourg</p>
+        <p class="bio">Miroslava Nedyalkova is a Fulbright Fellowship recipient (School of Pharmacy, University of Maryland, 2018) and winner of the L’Oréal-UNESCO Women in Science Prize (2022).</p>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="avatar c0" aria-hidden="true">JB</div>
+      <div>
+        <h3>Julien Baglio, PhD</h3>
+        <p class="role">Senior Research Associate, University of Basel</p>
+        <p class="bio">Julien Baglio is a recovering high-energy theorist and former member of the CERN Theory Department, in disguise as one of the world’s foremost experts on style-based quantum generative adversarial networks, which he has finessed into a novel mechanism for drug discovery. He is a devil for the details and is also active in the field of quantum Hamiltonian simulation.</p>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="avatar c1" aria-hidden="true">FG</div>
+      <div>
+        <h3>Fabrice Gallou, PhD</h3>
+        <p class="role">Distinguished Scientist, Novartis Pharma</p>
+        <p class="bio">Fabrice Gallou is a chemist who leads scientific activities in the division of New Chemical Entities of Development, specialising in synthesis, soft matter for chemistry and formulation. In 2019 he received the Yves Chauvin Award from the French Chemical Society as well as the Swiss Chemical Society Senior Industrial Science Award.</p>
+      </div>
+    </div>
+    <div class="person-row">
+      <div class="avatar c2" aria-hidden="true">ME</div>
+      <div>
+        <h3>Maximilian Eggersdorfer, PhD</h3>
+        <p class="role">Director of Data Science &amp; AI, Novartis Pharma</p>
+        <p class="bio">Maximilian Eggersdorfer leads the scientific computing approaches for pharmaceutical development of synthetic molecules, atop a strong academic foundation that includes a postdoc at Harvard University (2013–2015).</p>
       </div>
     </div>
   </div>
