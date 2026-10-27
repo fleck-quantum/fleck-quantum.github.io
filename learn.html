@@ -29,7 +29,7 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
   font-family: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
-  font-size: 17px; line-height: 1.6;
+  font-size: 16px; line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh; display: flex; flex-direction: column;
 }
@@ -59,7 +59,7 @@ nav ul a.active { font-weight: 600; }
 }
 .hero h1 span { color: var(--pink); }
 .hero p.lead {
-  font-size: 17px; color: #333; max-width: 34em; margin: 0; position: relative;
+  font-size: 16px; color: #333; max-width: 34em; margin: 0; position: relative;
 }
 .hero .tag {
   display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
@@ -129,7 +129,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   nav ul { gap: 18px; }
 }
 @media (max-width: 560px) {
-  body { font-size: 16px; }
+  body { font-size: 15px; }
   .wrap { padding: 0 16px; }
   nav ul { gap: 14px; }
   nav ul a { font-size: 14px; }
@@ -228,7 +228,7 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
 .topic-panel sup { font-size: .68em; line-height: 0; }
 .topic-panel sup a { color: var(--pink); text-decoration: none; font-weight: 600; }
 .topic-panel sup a:hover { text-decoration: underline; }
-.refs { margin: 28px 0 0; padding: 16px 0 0; list-style: none; font-size: 13.5px; line-height: 1.5; color: #333; }
+.refs { margin: 28px 0 0; padding: 16px 0 0; list-style: none; font-size: 13px; line-height: 1.5; color: #333; }
 .refs::before { content: ""; display: block; width: 180px; border-top: 1px solid #111; margin: 0 0 14px; }
 .refs li { margin: 0 0 8px; padding-left: 1.3em; text-indent: -1.3em; }
 .refs li:target { background: #fdf3fb; }
@@ -247,7 +247,7 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
 .glossary { margin: 0; display: grid; grid-template-columns: 210px 1fr; border-top: 1px solid #eee; }
 .glossary dt, .glossary dd { margin: 0; padding: 12px 0; border-bottom: 1px solid #eee; }
 .glossary dt { font-weight: 700; padding-right: 18px; }
-.glossary dd { color: #333; font-size: 15.5px; }
+.glossary dd { color: #333; font-size: 15px; }
 .glossary.abbr { grid-template-columns: 110px 1fr; }
 @media (max-width: 560px) {
   .glossary, .glossary.abbr { grid-template-columns: 1fr; }
@@ -320,6 +320,7 @@ button.gl-term:hover, button.gl-term.on { background: var(--pink-soft); border-r
           <li><a href="project.html">Project</a></li>
           <li><a href="researchers.html">People</a></li>
           <li><a href="consortium.html">Consortium</a></li>
+          <li><a href="meetings.html">Meetings</a></li>
         </ul>
       </li>
       <li><a href="learn.html" class="active" aria-current="page">Learn</a></li>
@@ -394,7 +395,7 @@ button.gl-term:hover, button.gl-term.on { background: var(--pink-soft); border-r
           <li id="qgan-ref-12"><span class="n">12</span>De Falco, F.; Ceschini, A.; Sebastianelli, A.; et al. Quantum Latent Diffusion Models. <em>Quantum Mach. Intell.</em> 2024, 6, 85. DOI: <a href="https://doi.org/10.1007/s42484-024-00224-6" target="_blank" rel="noopener">10.1007/s42484-024-00224-6</a></li>
           <li id="qgan-ref-13"><span class="n">13</span>De Falco, F.; Ceschini, A.; Sebastianelli, A.; Le Saux, B.; Panella, M. Quantum Hybrid Diffusion Models for Image Synthesis. <em>KI – Künstliche Intelligenz</em> 2024, 38, 311–326. DOI: <a href="https://doi.org/10.1007/s13218-024-00858-5" target="_blank" rel="noopener">10.1007/s13218-024-00858-5</a></li>
           <li id="qgan-ref-14"><span class="n">14</span>Bravo-Prieto, C.; Baglio, J.; Cè, M.; Francis, A.; Grabowska, D.; Carrazza, S. Style-based quantum generative adversarial networks for Monte Carlo events. <em>Quantum</em> 2022, 6. DOI: <a href="https://doi.org/10.22331/q-2022-08-17-777" target="_blank" rel="noopener">10.22331/q-2022-08-17-777</a></li>
-          <li id="qgan-ref-15"><span class="n">15</span>Baglio, J.; Haddad, Y.; Polifka, R. Latent-Style-Based Generative Quantum Model for Assisted Drug Discovery. Research Highlights at the first conference for Applied Quantum Methods in Computational Science and Engineering (AQMCSE 2025, Aachen, Germany, 8–10 October 2025) (pre-print expected 2026).</li>
+          <li id="qgan-ref-15"><span class="n">15</span>Baglio, J.; Haddad, Y.; Polifka, R. Latent Style-Based Quantum Wasserstein GAN for Drug Design. <em>Journal of Chemical Information and Modeling</em> 2026. DOI: <a href="https://doi.org/10.1021/acs.jcim.6c01249" target="_blank" rel="noopener">10.1021/acs.jcim.6c01249</a></li>
         </ol>
       </article>
       <article class="topic-panel" id="computational-chemistry" hidden>
@@ -491,7 +492,7 @@ button.gl-term:hover, button.gl-term.on { background: var(--pink-soft); border-r
         </ol>
       </article>
       <article class="topic-panel" id="quantum-computer" hidden>
-        <h2>Hardware</h2>
+        <h2>Ion-trap quantum computers</h2>
         <p>Quantum computing hardware and emulators have become available through the cloud through a mix of proprietary access portals managed by individual vendors (e.g., IBM, AQT) and multi-platform providers such as Amazon AWS, Microsoft Azure, PinQ or OVHcloud. Other public bodies such as the LRZ (Leibniz Supercomputing Centre) in Munich provide access to quantum computers for the research community in Germany. These systems range in price, qubit count and data security, with machines ranging from 6 qubits to 120 across various platforms. In terms of trapped ion quantum computers, there is no cloud system based on a scalable architecture that is in line with the roadmaps of major vendors towards quantum utility.</p>
         <p><strong>ZuriQ</strong> is the only company in the world producing a 2D ion-trap quantum computer based on the Penning trap. The leading providers Quantinuum (USA) and IonQ (USA) have begun their own development of 2D systems, however these approaches inherently suffer from several scalability limitations resulting from the radio-frequency (rf) electric fields necessary to trap the ions. The rf fields restrict ion movement to 1-dimensional translations and leave large chip areas inaccessible, which significantly reduces qubit density per unit area. Moreover, any misalignment of ions from the null of the rf field—caused by uncompensated stray fields which are common and non-uniform across the chip—exposes the ions to the rf field, which degrades the fidelity of quantum operations. Looking forward, this imposes extreme demands on fabrication tolerances when integrating optical elements such as grating outcouplers, which must precisely focus laser light at the rf null to maintain the fidelity at a high level.</p>
         <figure class="topic-fig">

@@ -29,7 +29,7 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
   font-family: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
-  font-size: 17px; line-height: 1.6;
+  font-size: 16px; line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh; display: flex; flex-direction: column;
 }
@@ -59,7 +59,7 @@ nav ul a.active { font-weight: 600; }
 }
 .hero h1 span { color: var(--pink); }
 .hero p.lead {
-  font-size: 17px; color: #333; max-width: 34em; margin: 0; position: relative;
+  font-size: 16px; color: #333; max-width: 34em; margin: 0; position: relative;
 }
 .hero .tag {
   display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
@@ -129,7 +129,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   nav ul { gap: 18px; }
 }
 @media (max-width: 560px) {
-  body { font-size: 16px; }
+  body { font-size: 15px; }
   .wrap { padding: 0 16px; }
   nav ul { gap: 14px; }
   nav ul a { font-size: 14px; }
@@ -177,7 +177,7 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
 .project-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 48px; align-items: start; }
 .project-grid figure { margin: 0; }
 .project-grid figure img { width: 100%; height: auto; display: block; }
-.project-grid .prose { font-size: 15.5px; }
+.project-grid .prose { font-size: 15px; }
 .page-head p.intro { color: #333; max-width: none; margin-top: 14px; }
 .page-head h1 + p.intro { margin-top: 34px; }
 .page-head p.intro strong { color: var(--ink); font-weight: 700; }
@@ -217,7 +217,7 @@ section.proj-section + section.proj-section { border-top: 1px solid #f0f0f0; }
 .one:nth-child(2) .dot { background: var(--green); }
 .one:nth-child(3) .dot { background: var(--orange); }
 .one h3 { margin: 0; font-size: 17px; font-weight: 800; letter-spacing: -.01em; }
-.one p { grid-column: 1 / -1; margin: 6px 0 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
+.one p { grid-column: 1 / -1; margin: 6px 0 0; color: var(--muted); font-size: 13.5px; line-height: 1.45; }
 
 .vision-box { background: var(--pink-soft); border-radius: 28px; padding: 26px 28px 24px; position: relative; overflow: hidden; }
 .vision-box > * { position: relative; }
@@ -228,7 +228,7 @@ section.proj-section + section.proj-section { border-top: 1px solid #f0f0f0; }
 @media (max-width: 560px) { .vision-box { padding: 22px 18px; } .vision-box .vb-dot2 { display: none; } .vision-box .vb-dot1 { width: 80px; height: 80px; right: -34px; top: -40px; } }
 
 /* How it works: text flows around the schematic and into its empty corner */
-.how { display: flow-root; font-size: 15.5px; }
+.how { display: flow-root; font-size: 15px; }
 .how p { margin: 0 0 14px; }
 .schem { float: right; width: 52%; margin: 0 0 12px 36px; display: block; }
 .schem img { width: 100%; height: auto; display: block; }
@@ -244,7 +244,7 @@ section.proj-section + section.proj-section { border-top: 1px solid #f0f0f0; }
 .wp-num { font-size: 13px; font-weight: 800; color: #fff; background: var(--ink); border-radius: 999px; padding: 3px 10px; }
 .wp-lead { font-size: 12px; font-weight: 600; color: var(--pink); text-align: right; white-space: nowrap; letter-spacing: -.005em; }
 .wp h3 { margin: 0 0 6px; font-size: 16px; font-weight: 800; line-height: 1.25; letter-spacing: -.005em; }
-.wp p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
+.wp p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.45; }
 
 /* Milestones */
 .milestones { list-style: none; margin: 64px 0 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); position: relative; }
@@ -276,6 +276,34 @@ section.proj-section + section.proj-section { border-top: 1px solid #f0f0f0; }
   .wp-grid { grid-template-columns: 1fr; }
   .wp-banner { padding: 14px; }
 }
+
+/* Section sidebar (green) */
+.h1-link { color: inherit; text-decoration: none; }
+.h1-link:hover { color: var(--green); }
+.learn-layout { display: grid; grid-template-columns: 236px minmax(0, 1fr); column-gap: 32px; align-items: start; }
+.topic-banner { border-radius: 24px; position: relative; overflow: hidden; }
+.topic-banner.green { background: var(--green-soft); }
+.learn-layout .topic-banner { position: sticky; top: 84px; padding: 22px 16px 46px; }
+.topic-banner .dot1 { position: absolute; width: 90px; height: 90px; right: -30px; bottom: -36px; border-radius: 50%; background: var(--pink-soft); }
+.topic-banner .dot2 { position: absolute; right: 70px; bottom: 18px; width: 14px; height: 14px; border-radius: 50%; background: var(--orange); }
+.topics { position: relative; display: flex; flex-direction: column; gap: 4px; }
+.topics a { display: block; text-decoration: none; border-radius: 12px; padding: 8px 12px; font-size: 14.5px; font-weight: 600; line-height: 1.3; background: rgba(255,255,255,.75); color: var(--ink); }
+.topics a:hover { background: #fff; }
+.topics a.active, .topics a.active:hover { background: var(--ink); color: #fff; }
+.learn-main .topic-panel[hidden] { display: none; }
+.learn-main .topic-panel h2 { font-size: clamp(22px, 2.3vw, 26px); margin: 0 0 16px; }
+.intro-p { margin: 0 0 14px; color: #333; }
+.intro-p strong { color: var(--ink); font-weight: 600; }
+#project .vision-box { margin-top: 26px; }
+.learn-main .wp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.learn-main .schem { width: 50%; }
+@media (max-width: 760px) {
+  .learn-layout { grid-template-columns: 1fr; row-gap: 24px; }
+  .learn-layout .topic-banner { position: relative; top: auto; padding-bottom: 22px; }
+  .topics { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+  .topics a { border-radius: 999px; padding: 10px 18px; font-size: 15px; }
+  .learn-main .wp-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -291,6 +319,7 @@ section.proj-section + section.proj-section { border-top: 1px solid #f0f0f0; }
           <li><a href="project.html" class="active" aria-current="page">Project</a></li>
           <li><a href="researchers.html">People</a></li>
           <li><a href="consortium.html">Consortium</a></li>
+          <li><a href="meetings.html">Meetings</a></li>
         </ul>
       </li>
       <li><a href="learn.html">Learn</a></li>
@@ -308,14 +337,26 @@ section.proj-section + section.proj-section { border-top: 1px solid #f0f0f0; }
       <circle cx="122" cy="52" r="9" fill="#ec6a2a"/>
       <circle cx="74" cy="56" r="6" fill="#4ca22f"/>
     </svg>
-    <h1>The project</h1>
-    <p class="intro">Fleck will use quantum computing to address three key application domains: contrast agent discovery; drug design; and brain cancer detection using ultra-low field (ULF) MR imaging. The project will build a scalable, integrated quantum-AI platform which will automate algorithms between classical (CPU, GPU) and quantum (QPU) resources.</p>
-    <p class="intro">The platform architecture will afford researchers one of the first opportunities to integrate quantum-derived descriptors, molecular dynamics sampling, free-energy calculations and quantum machine learning models into a single design loop. This endeavour will <strong>accelerate</strong> the development of Switzerland’s first quantum computer, <strong>improve application technologies</strong> for Switzerland’s only ULF MRI scanner and be the <strong>first in the world</strong> to provide open-source platform code for quantum-AI single job execution.</p>
+    <h1><a class="h1-link" href="project.html">The project</a></h1>
   </div>
 
+  <div class="wrap page-body">
+    <div class="learn-layout">
+    <aside class="topic-banner green">
+      <span class="dot1" aria-hidden="true"></span>
+      <span class="dot2" aria-hidden="true"></span>
+      <div class="topics" role="navigation" aria-label="Project sections">
+        <a href="#project">Project</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#work-packages">Work packages</a>
+      </div>
+    </aside>
+    <div class="learn-main">
+    <div class="panels">
+      <article class="topic-panel" id="project">
+    <p class="intro-p">Fleck will use quantum computing to address three key application domains: contrast agent discovery; drug design; and brain cancer detection using ultra-low field (ULF) MR imaging. The project will build a scalable, integrated quantum-AI platform which will automate algorithms between classical (CPU, GPU) and quantum (QPU) resources.</p>
+    <p class="intro-p">The platform architecture will afford researchers one of the first opportunities to integrate quantum-derived descriptors, molecular dynamics sampling, free-energy calculations and quantum machine learning models into a single design loop. This endeavour will <strong>accelerate</strong> the development of Switzerland’s first quantum computer, <strong>improve application technologies</strong> for Switzerland’s only ULF MRI scanner and be the <strong>first in the world</strong> to provide open-source platform code for quantum-AI single job execution.</p>
 
-  <section class="proj-section" aria-labelledby="vision">
-  <div class="wrap">
     <div class="vision-box">
       <span class="vb-dot1" aria-hidden="true"></span>
       <span class="vb-dot2" aria-hidden="true"></span>
@@ -327,12 +368,10 @@ section.proj-section + section.proj-section { border-top: 1px solid #f0f0f0; }
       <div class="one"><div class="dot"></div><h3>Swiss ecosystem</h3><p>Hardware, software and end users from all partners on one platform.</p></div>
     </div>
     </div>
-  </div>
-  </section>
+      </article>
 
-  <section class="proj-section" aria-labelledby="how">
-  <div class="wrap">
-    <h2 id="how">Pipeline</h2>
+      <article class="topic-panel" id="pipeline" hidden>
+        <h2>Pipeline</h2>
     <div class="how">
       <div class="schem"><img src="workflow.png" alt="Schematic of the Fleck workflow: the platform stack with CPU, GPU and QPU resources; training a quantum ML generator and a classical ML model; ranking and quantum re-ranking of candidates; synthesis of the best candidate; and scanning in ULF MRI with a phantom."></div>
         <p>The Fleck platform (<strong>QuantumBasel, Phoeniqs</strong>) contains quantum (<strong>ZuriQ</strong>) and AI resources. A software stack (<strong>QuantumBasel</strong>) orchestrates the two.</p>
@@ -340,12 +379,10 @@ section.proj-section + section.proj-section { border-top: 1px solid #f0f0f0; }
         <p>The set of all candidates is ranked according to their properties and subsequently re-ranked after classical molecular docking simulations and quantum-enhanced free energy of binding calculations (<strong>ETHZ</strong>), which use the quantum-AI stack in an iterative loop to deploy the FreeQuantum software.</p>
         <p>The best candidate is then synthesised in the lab (<strong>Novartis</strong>) and combined with a phantom to undergo relaxometry experiments in an ULF MRI scanner (<strong>Multiwave Technologies</strong>).</p>
     </div>
-  </div>
-  </section>
+      </article>
 
-  <section class="proj-section" aria-labelledby="wps" style="padding-bottom:64px">
-  <div class="wrap">
-    <h2 id="wps">Work packages and milestones</h2>
+      <article class="topic-panel" id="work-packages" hidden>
+        <h2>Work packages and milestones</h2>
     <div class="wp-banner">
       <div class="wp-grid">
         <div class="wp"><div class="wp-top"><span class="wp-num">WP1</span><span class="wp-lead">ZuriQ</span></div><h3>Deploy 2D ion-trap QC to the cloud</h3><p>Compiler, auto-calibration and cloud launch with 20 qubits</p></div>
@@ -366,10 +403,11 @@ section.proj-section + section.proj-section { border-top: 1px solid #f0f0f0; }
       <li><span class="ms-dot">M5</span><div class="ms-date">Sep 2028</div><div class="ms-what">FreeQuantum in Fleck</div><div class="ms-who">ETHZ</div></li>
       <li><span class="ms-dot">M6</span><div class="ms-date">Mar 2029</div><div class="ms-what">Drug conjugates synthesised</div><div class="ms-who">Novartis</div></li>
     </ol>
+      </article>
+    </div>
+    </div>
+    </div>
   </div>
-  </section>
-
-
 </main>
 
 <footer>
@@ -395,6 +433,19 @@ section.proj-section + section.proj-section { border-top: 1px solid #f0f0f0; }
       li.querySelector('.menu-btn').setAttribute('aria-expanded', 'false');
     });
   });
+</script>
+<script>
+  // Project page: the green panel switches between sections (also works with links like project.html#pipeline)
+  (function () {
+    var btns = document.querySelectorAll('.topics a'), panels = document.querySelectorAll('.topic-panel');
+    function show(id) {
+      if (!document.getElementById(id)) id = 'project';
+      panels.forEach(function (p) { p.hidden = p.id !== id; });
+      btns.forEach(function (b) { b.classList.toggle('active', b.getAttribute('href') === '#' + id); });
+    }
+    window.addEventListener('hashchange', function () { show(location.hash.slice(1)); });
+    show(location.hash.slice(1));
+  })();
 </script>
 </body>
 </html>

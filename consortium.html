@@ -29,7 +29,7 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
   font-family: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
-  font-size: 17px; line-height: 1.6;
+  font-size: 16px; line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh; display: flex; flex-direction: column;
 }
@@ -59,7 +59,7 @@ nav ul a.active { font-weight: 600; }
 }
 .hero h1 span { color: var(--pink); }
 .hero p.lead {
-  font-size: 17px; color: #333; max-width: 34em; margin: 0; position: relative;
+  font-size: 16px; color: #333; max-width: 34em; margin: 0; position: relative;
 }
 .hero .tag {
   display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
@@ -129,7 +129,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   nav ul { gap: 18px; }
 }
 @media (max-width: 560px) {
-  body { font-size: 16px; }
+  body { font-size: 15px; }
   .wrap { padding: 0 16px; }
   nav ul { gap: 14px; }
   nav ul a { font-size: 14px; }
@@ -214,6 +214,30 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
 /* Consortium page */
 .map-fig { margin: 0; }
 .map-fig img { width: 100%; height: auto; display: block; }
+
+.h1-link { color: inherit; text-decoration: none; }
+.h1-link:hover { color: var(--pink); }
+.cons-layout { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 32px; align-items: center; }
+.ptiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; background: var(--pink-soft); border-radius: 24px; padding: 14px; }
+.ptile { display: flex; align-items: center; justify-content: center; height: 78px; padding: 12px; border-radius: 16px; background: #fff; border: 2px solid transparent; transition: border-color .2s, transform .2s; }
+.ptile:hover { transform: translateY(-1px); }
+.ptile.active { border-color: var(--ink); }
+.ptile img { max-width: 86%; max-height: 30px; object-fit: contain; }
+.ptile img.tall { max-height: 46px; }
+.ptile img[src*="zuriq"] { max-height: 34px; }
+.map-fig { margin: 0; }
+.map-fig img { width: 100%; height: auto; display: block; }
+.partner-texts { margin-top: 36px; padding-top: 28px; border-top: 1px solid #eee; min-height: 120px; }
+.partner-text[hidden] { display: none; }
+.partner-text h2 { font-size: clamp(22px, 2.3vw, 26px); margin: 0 0 12px; }
+.partner-text p { margin: 0; color: #333; max-width: none; text-align: justify; hyphens: auto; }
+.partner-text .soon, .pick { color: var(--muted); }
+.pick { margin: 0; }
+@media (max-width: 860px) {
+  .cons-layout { grid-template-columns: 1fr; }
+  .ptiles { order: 2; }
+}
+@media (max-width: 560px) { .ptile { height: 66px; } }
 </style>
 </head>
 <body>
@@ -229,6 +253,7 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
           <li><a href="project.html">Project</a></li>
           <li><a href="researchers.html">People</a></li>
           <li><a href="consortium.html" class="active" aria-current="page">Consortium</a></li>
+          <li><a href="meetings.html">Meetings</a></li>
         </ul>
       </li>
       <li><a href="learn.html">Learn</a></li>
@@ -246,14 +271,62 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
       <circle cx="122" cy="52" r="9" fill="#ec6a2a"/>
       <circle cx="74" cy="56" r="6" fill="#4ca22f"/>
     </svg>
-    <h1>The consortium</h1>
-    <p>Three partners from academia and five from industry, across Switzerland.</p>
+    <h1><a class="h1-link" href="consortium.html">The consortium</a></h1>
   </div>
 
   <div class="wrap page-body">
-    <figure class="map-fig">
-      <img src="map.png" alt="Map of Switzerland showing the Fleck partners: Novartis, Phoeniqs, QuantumBasel and Universität Basel in Basel; ZuriQ and ETH Zürich in Zurich; Université de Fribourg in Fribourg; and Multiwave Technologies in Geneva.">
-    </figure>
+    <div class="cons-layout">
+      <aside class="ptiles" aria-label="Consortium partners">
+        <!-- One tile per partner; each opens the description with the matching id below -->
+        <a class="ptile" href="#unibasel" title="Universität Basel"><img class="tall" src="logos/unibasel.png" alt="Universität Basel"></a>
+        <a class="ptile" href="#eth" title="ETH Zürich"><img src="logos/eth.png" alt="ETH Zürich"></a>
+        <a class="ptile" href="#unifr" title="Université de Fribourg"><img class="tall" src="logos/unifr.png" alt="Université de Fribourg"></a>
+        <a class="ptile" href="#quantumbasel" title="QuantumBasel"><img src="logos/quantumbasel.png" alt="QuantumBasel"></a>
+        <a class="ptile" href="#zuriq" title="ZuriQ"><img src="logos/zuriq.png" alt="ZuriQ"></a>
+        <a class="ptile" href="#phoeniqs" title="Phoeniqs"><img src="logos/phoeniqs.png" alt="Phoeniqs"></a>
+        <a class="ptile" href="#novartis" title="Novartis"><img src="logos/novartis.png" alt="Novartis"></a>
+        <a class="ptile" href="#multiwave" title="Multiwave Technologies"><img class="tall" src="logos/multiwave.png" alt="Multiwave Technologies"></a>
+      </aside>
+      <figure class="map-fig">
+        <img src="map.png" alt="Map of Switzerland showing the Fleck partners: Novartis, Phoeniqs, QuantumBasel and Universität Basel in Basel; ZuriQ and ETH Zürich in Zurich; Université de Fribourg in Fribourg; and Multiwave Technologies in Geneva.">
+      </figure>
+    </div>
+
+    <div class="partner-texts">
+      <p class="pick" id="pick">Select a partner on the left to read more about them.</p>
+      <article class="partner-text" id="unibasel" hidden>
+        <h2>Universität Basel</h2>
+        <p><span class="soon">Description coming soon.</span></p>
+      </article>
+      <article class="partner-text" id="eth" hidden>
+        <h2>ETH Zürich</h2>
+        <p><span class="soon">Description coming soon.</span></p>
+      </article>
+      <article class="partner-text" id="unifr" hidden>
+        <h2>Université de Fribourg</h2>
+        <p><span class="soon">Description coming soon.</span></p>
+      </article>
+      <article class="partner-text" id="quantumbasel" hidden>
+        <h2>QuantumBasel</h2>
+        <p><span class="soon">Description coming soon.</span></p>
+      </article>
+      <article class="partner-text" id="zuriq" hidden>
+        <h2>ZuriQ</h2>
+        <p><span class="soon">Description coming soon.</span></p>
+      </article>
+      <article class="partner-text" id="phoeniqs" hidden>
+        <h2>Phoeniqs</h2>
+        <p><span class="soon">Description coming soon.</span></p>
+      </article>
+      <article class="partner-text" id="novartis" hidden>
+        <h2>Novartis</h2>
+        <p><span class="soon">Description coming soon.</span></p>
+      </article>
+      <article class="partner-text" id="multiwave" hidden>
+        <h2>Multiwave Technologies</h2>
+        <p>Multiwave Technologies is a deep-tech company pioneering AI-powered, ultra-low-field MRI to make medical imaging accessible, affordable and mobile. Combining expertise in metamaterials, physics and artificial intelligence, we collaborate with leading researchers and clinicians to advance medical imaging. Our portable MRI innovations aim to enable earlier diagnosis, preventive care and healthier aging, contributing to longevity and improved quality of life. Driven by science and meaningful societal impact, we are committed to bringing MRI to everyone, everywhere.</p>
+      </article>
+    </div>
   </div>
 </main>
 
@@ -280,6 +353,23 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
       li.querySelector('.menu-btn').setAttribute('aria-expanded', 'false');
     });
   });
+</script>
+<script>
+  // Consortium: clicking a partner tile shows its description under the map
+  (function () {
+    var tiles = document.querySelectorAll('.ptile'), texts = document.querySelectorAll('.partner-text'), pick = document.getElementById('pick');
+    function show(id) {
+      var found = false;
+      texts.forEach(function (t) { var on = t.id === id; t.hidden = !on; if (on) found = true; });
+      tiles.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + id); });
+      pick.hidden = found;
+    }
+    tiles.forEach(function (a) { a.addEventListener('click', function (e) {
+      e.preventDefault(); var id = a.getAttribute('href').slice(1);
+      history.replaceState(null, '', '#' + id); show(id);
+    }); });
+    show(location.hash.slice(1));
+  })();
 </script>
 </body>
 </html>
