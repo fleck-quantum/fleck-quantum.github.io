@@ -8,6 +8,9 @@
 <meta property="og:title" content="Fleck: quantum computing for the life sciences">
 <meta property="og:description" content="An eight-party all-Swiss consortium applying quantum computing to contrast agent discovery, drug design and ULF-MRI brain cancer detection.">
 <meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;800&display=swap" rel="stylesheet">
@@ -280,7 +283,7 @@ section.proj-section + section.proj-section { border-top: 1px solid #f0f0f0; }
 /* Section sidebar (green) */
 .h1-link { color: inherit; text-decoration: none; }
 .h1-link:hover { color: var(--green); }
-.learn-layout { display: grid; grid-template-columns: 236px minmax(0, 1fr); column-gap: 32px; align-items: start; }
+.learn-layout { display: grid; grid-template-columns: 190px minmax(0, 1fr); column-gap: 32px; align-items: start; }
 .topic-banner { border-radius: 24px; position: relative; overflow: hidden; }
 .topic-banner.green { background: var(--green-soft); }
 .learn-layout .topic-banner { position: sticky; top: 84px; padding: 22px 16px 46px; }
@@ -296,12 +299,16 @@ section.proj-section + section.proj-section { border-top: 1px solid #f0f0f0; }
 .intro-p strong { color: var(--ink); font-weight: 600; }
 #project .vision-box { margin-top: 26px; }
 .learn-main .wp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.learn-main .schem { width: 50%; }
+.learn-main .schem { width: 64%; margin: 4px 0 14px 28px; }
+@media (max-width: 1000px) { .learn-main .schem { width: 58%; } }
 @media (max-width: 760px) {
   .learn-layout { grid-template-columns: 1fr; row-gap: 24px; }
   .learn-layout .topic-banner { position: relative; top: auto; padding-bottom: 22px; }
-  .topics { flex-direction: row; flex-wrap: wrap; gap: 8px; }
-  .topics a { border-radius: 999px; padding: 10px 18px; font-size: 15px; }
+  .topics { flex-direction: row; flex-wrap: nowrap; gap: 6px; }
+  .topics a { flex: 1 1 auto; text-align: center; white-space: nowrap; border-radius: 999px; padding: 9px 10px; font-size: 14px; }
+  .learn-layout .topic-banner { padding: 10px; }
+  .topic-banner .dot1, .topic-banner .dot2 { display: none; }
+  .learn-main .schem { float: none; width: 100%; margin: 0 0 18px; }
   .learn-main .wp-grid { grid-template-columns: 1fr; }
 }
 </style>
@@ -337,7 +344,7 @@ section.proj-section + section.proj-section { border-top: 1px solid #f0f0f0; }
       <circle cx="122" cy="52" r="9" fill="#ec6a2a"/>
       <circle cx="74" cy="56" r="6" fill="#4ca22f"/>
     </svg>
-    <h1><a class="h1-link" href="project.html">The project</a></h1>
+    <h1><a class="h1-link" href="project.html">Project</a></h1>
   </div>
 
   <div class="wrap page-body">

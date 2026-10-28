@@ -8,6 +8,9 @@
 <meta property="og:title" content="Fleck: quantum computing for the life sciences">
 <meta property="og:description" content="An eight-party all-Swiss consortium applying quantum computing to contrast agent discovery, drug design and ULF-MRI brain cancer detection.">
 <meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;800&display=swap" rel="stylesheet">
@@ -305,6 +308,31 @@ button.gl-term:hover, button.gl-term.on { background: var(--pink-soft); border-r
 .h1-link { color: inherit; text-decoration: none; }
 .h1-link:hover { color: var(--pink); }
 .coming-soon strong { color: var(--ink); }
+
+/* Collapsible topic panel */
+.learn-layout { grid-template-columns: 214px minmax(0, 1fr); transition: grid-template-columns .25s; }
+.learn-layout .topic-banner { padding-top: 12px; }
+.panel-toggle { position: relative; z-index: 1; display: flex; width: 100%; justify-content: flex-end; background: none; border: 0; padding: 2px 4px 8px; font: inherit; font-size: 12.5px; font-weight: 700; color: #7a3c71; cursor: pointer; }
+.panel-toggle .pt-open { display: none; }
+.panel-toggle:hover { color: var(--ink); }
+.learn-layout.collapsed { grid-template-columns: 46px minmax(0, 1fr); }
+.learn-layout.collapsed .topic-banner { padding: 14px 0; min-height: 150px; cursor: pointer; }
+.learn-layout.collapsed .topics, .learn-layout.collapsed .dot1, .learn-layout.collapsed .dot2 { display: none; }
+.learn-layout.collapsed .panel-toggle { justify-content: center; padding: 0; height: 100%; }
+.learn-layout.collapsed .panel-toggle .pt-hide { display: none; }
+.learn-layout.collapsed .panel-toggle .pt-open { display: block; writing-mode: vertical-rl; transform: rotate(180deg); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+.learn-layout.collapsed .panel-toggle .pt-open::before { content: "› "; }
+@media (max-width: 760px) {
+  .learn-layout, .learn-layout.collapsed { grid-template-columns: 1fr; row-gap: 18px; }
+  .learn-layout .topic-banner, .learn-layout.collapsed .topic-banner { padding: 6px 10px; min-height: 0; border-radius: 18px; cursor: default; }
+  .panel-toggle, .learn-layout.collapsed .panel-toggle { justify-content: space-between; padding: 8px 6px; font-size: 14px; height: auto; }
+  .panel-toggle .pt-open, .learn-layout.collapsed .panel-toggle .pt-open { display: block; writing-mode: horizontal-tb; transform: none; letter-spacing: .06em; text-transform: uppercase; font-size: 13px; }
+  .learn-layout.collapsed .panel-toggle .pt-open::before { content: none; }
+  .panel-toggle .pt-hide { display: block; }
+  .panel-toggle .pt-hide::after { content: ""; }
+  .learn-layout.collapsed .panel-toggle .pt-hide { display: block; }
+  .learn-layout .topics { padding: 4px 2px 12px; }
+}
 </style>
 </head>
 <body>
@@ -343,11 +371,14 @@ button.gl-term:hover, button.gl-term.on { background: var(--pink-soft); border-r
 
   <div class="wrap page-body">
     <div class="learn-layout">
-    <aside class="topic-banner">
+    <aside class="topic-banner" id="topic-panel">
+      <button class="panel-toggle" type="button" aria-expanded="true" aria-controls="topic-list">
+        <span class="pt-open">Topics</span><span class="pt-hide" aria-hidden="true">‹ Hide</span>
+      </button>
       <span class="dot1" aria-hidden="true"></span>
       <span class="dot2" aria-hidden="true"></span>
       <!-- Topics are grouped; within each group they are alphabetical. A sub-topic (class="sub") goes straight after its parent. Each link opens the panel with the matching id. -->
-      <div class="topics" role="navigation" aria-label="Learn topics">
+      <div class="topics" id="topic-list" role="navigation" aria-label="Learn topics">
         <p class="tg">Quantum computing</p>
         <span class="tl" aria-disabled="true">Algorithms</span>
         <a href="#biomolecular-recognition" class="sub">Quantum biomolecular recognition</a>
@@ -362,7 +393,7 @@ button.gl-term:hover, button.gl-term.on { background: var(--pink-soft); border-r
       </div>
     </aside>
     <div class="learn-main">
-    <p class="coming-soon" id="learn-intro">In the left-hand panel you will find resources, references and texts on the topics in the Fleck project.<br><strong>Coming soon:</strong> intros to the fundamental topics in the Fleck project.</p>
+    <p class="coming-soon" id="learn-intro">In the panel you will find resources, references and texts on the topics in the Fleck project.<br><strong>Coming soon:</strong> intros to the fundamental topics in the Fleck project.</p>
 
     <div class="panels">
       <aside class="gl-note" id="gl-note" role="dialog" aria-live="polite" hidden>
@@ -659,6 +690,29 @@ button.gl-term:hover, button.gl-term.on { background: var(--pink-soft); border-r
     box.querySelector('.gl-more').addEventListener('click', close);
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
     window.addEventListener('hashchange', close);
+  })();
+</script>
+<script>
+  // Topic panel: collapse to a slim tab on laptops; on phones it is a "Topics" drop-down
+  (function () {
+    var layout = document.querySelector('.learn-layout'), panel = document.getElementById('topic-panel');
+    var btn = panel.querySelector('.panel-toggle'), hideLbl = btn.querySelector('.pt-hide');
+    var phone = window.matchMedia('(max-width: 760px)');
+    function set(collapsed, remember) {
+      layout.classList.toggle('collapsed', collapsed);
+      btn.setAttribute('aria-expanded', String(!collapsed));
+      hideLbl.textContent = phone.matches ? (collapsed ? 'Show ▾' : 'Hide ▴') : '‹ Hide';
+      if (remember && !phone.matches) { try { localStorage.setItem('fleck-topics-collapsed', collapsed ? '1' : '0'); } catch (e) {} }
+    }
+    var saved = null; try { saved = localStorage.getItem('fleck-topics-collapsed'); } catch (e) {}
+    set(phone.matches ? true : saved === '1', false);
+    btn.addEventListener('click', function (e) { e.stopPropagation(); set(!layout.classList.contains('collapsed'), true); });
+    panel.addEventListener('click', function () { if (layout.classList.contains('collapsed') && !phone.matches) set(false, true); });
+    phone.addEventListener('change', function () { set(phone.matches, false); });
+    // on phones, close the list after choosing a topic
+    panel.querySelectorAll('.topics a').forEach(function (a) {
+      a.addEventListener('click', function () { if (phone.matches) set(true, false); });
+    });
   })();
 </script>
 </body>

@@ -8,6 +8,9 @@
 <meta property="og:title" content="Fleck: quantum computing for the life sciences">
 <meta property="og:description" content="An eight-party all-Swiss consortium applying quantum computing to contrast agent discovery, drug design and ULF-MRI brain cancer detection.">
 <meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;800&display=swap" rel="stylesheet">
@@ -264,7 +267,6 @@ button.person:focus-visible { outline: 2px solid var(--pink); outline-offset: 6p
       <circle cx="74" cy="56" r="6" fill="#4ca22f"/>
     </svg>
     <h1>People</h1>
-    <p>The people behind Fleck.</p>
   </div>
 
   <div class="wrap page-body">
@@ -279,15 +281,42 @@ button.person:focus-visible { outline: 2px solid var(--pink); outline-offset: 6p
         <span class="more">Read bio →</span>
       </button>
       <template id="bio-0"><p>Yelena Guryanova is the proposal's main applicant; she designed the Fleck project from scratch, connected the scientific and engineering ideas and assembled the consortium partners. Yelena is a theoretical physicist who specialises in quantum information. Her research interests include: quantum algorithms, quantum thermodynamics, causality and higher-order processes. In her career she has been main applicant on more than EUR 4.5 Mio in funding and prizes.</p></template>
-      <div class="person">
-        <span class="pic"><span class="avatar c1" aria-hidden="true">TA</span></span>
+      <button class="person" type="button" data-bio="bio-1">
+        <span class="pic"><span class="avatar c0" aria-hidden="true">TA</span></span>
         <span class="nm">Tryfon Antonakakis, PhD</span>
         <span class="rl">Co-founder and co-CEO<br>Multiwave Technologies</span>
-      </div>
+        <span class="more">Read bio →</span>
+      </button>
+      <template id="bio-1"><p>Tryfon Antonakakis is the Fleck project coordinator. He is a scientist and ex-professional athlete turned serial entrepreneur with a background in engineering and applied mathematics. From metamaterials to multi-physics software to bioengineering, Tryfon leads Multiwave Technologies’ interdisciplinary research efforts. He leverages an ability to connect the dots between different scientific fields to build Multiwave’s portable MRI intellectual property portfolio.</p></template>
       <div class="person">
-        <span class="pic"><span class="avatar c2" aria-hidden="true">JB</span></span>
+        <span class="pic"><span class="avatar c1" aria-hidden="true">JB</span></span>
         <span class="nm">Jonathan Bartoli</span>
         <span class="rl">Head of Grants<br>Multiwave Technologies</span>
+      </div>
+      <div class="person">
+        <span class="pic"><span class="avatar c2" aria-hidden="true">MN</span></span>
+        <span class="nm">Miroslava Nedyalkova, PhD</span>
+        <span class="rl">Senior Research Associate<br>University of Fribourg</span>
+      </div>
+      <div class="person">
+        <span class="pic"><span class="avatar c3" aria-hidden="true">PH</span></span>
+        <span class="nm">Pavel Hrmo, PhD</span>
+        <span class="rl">Co-founder and CEO<br>ZuriQ</span>
+      </div>
+      <div class="person">
+        <span class="pic"><span class="avatar c0" aria-hidden="true">TS</span></span>
+        <span class="nm">Tobias Sägesser, PhD</span>
+        <span class="rl">CTO<br>ZuriQ</span>
+      </div>
+      <div class="person">
+        <span class="pic"><span class="avatar c1" aria-hidden="true">MR</span></span>
+        <span class="nm">Prof. Markus Reiher</span>
+        <span class="rl">Group Leader<br>ETH Zürich</span>
+      </div>
+      <div class="person">
+        <span class="pic"><span class="avatar c2" aria-hidden="true">ML</span></span>
+        <span class="nm">Prof. Marco Lattuada</span>
+        <span class="rl">Head of Chemistry Department and Group Leader<br>University of Fribourg</span>
       </div>
       <div class="person">
         <span class="pic"><span class="avatar c3" aria-hidden="true">JM</span></span>
@@ -295,44 +324,34 @@ button.person:focus-visible { outline: 2px solid var(--pink); outline-offset: 6p
         <span class="rl">CTO<br>QuantumBasel</span>
       </div>
       <div class="person">
-        <span class="pic"><span class="avatar c0" aria-hidden="true">PH</span></span>
-        <span class="nm">Pavel Hrmo, PhD</span>
-        <span class="rl">Co-founder and CEO<br>ZuriQ</span>
-      </div>
-      <div class="person">
-        <span class="pic"><span class="avatar c1" aria-hidden="true">TS</span></span>
-        <span class="nm">Tobias Sägesser, PhD</span>
-        <span class="rl">CTO<br>ZuriQ</span>
-      </div>
-      <div class="person">
-        <span class="pic"><span class="avatar c2" aria-hidden="true">MR</span></span>
-        <span class="nm">Prof. Markus Reiher</span>
-        <span class="rl">Group Leader<br>ETH Zürich</span>
-      </div>
-      <div class="person">
-        <span class="pic"><span class="avatar c3" aria-hidden="true">ML</span></span>
-        <span class="nm">Prof. Marco Lattuada</span>
-        <span class="rl">Head of Chemistry Department and Group Leader<br>University of Fribourg</span>
-      </div>
-      <div class="person">
-        <span class="pic"><span class="avatar c0" aria-hidden="true">MN</span></span>
-        <span class="nm">Miroslava Nedyalkova, PhD</span>
-        <span class="rl">Senior Research Associate<br>University of Fribourg</span>
-      </div>
-      <div class="person">
-        <span class="pic"><span class="avatar c1" aria-hidden="true">JB</span></span>
+        <span class="pic"><span class="avatar c0" aria-hidden="true">JB</span></span>
         <span class="nm">Julien Baglio, PhD</span>
         <span class="rl">Senior Research Associate<br>University of Basel</span>
       </div>
       <div class="person">
-        <span class="pic"><span class="avatar c2" aria-hidden="true">FG</span></span>
+        <span class="pic"><span class="avatar c1" aria-hidden="true">FG</span></span>
         <span class="nm">Fabrice Gallou, PhD</span>
         <span class="rl">Distinguished Scientist<br>Novartis Pharma</span>
       </div>
       <div class="person">
-        <span class="pic"><span class="avatar c3" aria-hidden="true">ME</span></span>
+        <span class="pic"><span class="avatar c2" aria-hidden="true">ME</span></span>
         <span class="nm">Maximilian Eggersdorfer, PhD</span>
         <span class="rl">Director of Data Science &amp; AI<br>Novartis Pharma</span>
+      </div>
+      <div class="person">
+        <span class="pic"><span class="avatar c3" aria-hidden="true">JG</span></span>
+        <span class="nm">Janine Goldiger</span>
+        <span class="rl">Lead Academia &amp; Foundation Partnerships<br>QuantumBasel</span>
+      </div>
+      <div class="person">
+        <span class="pic"><span class="avatar c0" aria-hidden="true">DS</span></span>
+        <span class="nm">Daniel Spingies</span>
+        <span class="rl">Financial Officer<br>University of Basel</span>
+      </div>
+      <div class="person">
+        <span class="pic"><span class="avatar c1" aria-hidden="true">LZ</span></span>
+        <span class="nm">Lei Zhang</span>
+        <span class="rl">Head of Computational Physics<br>Multiwave Technologies</span>
       </div>
     </div>
 

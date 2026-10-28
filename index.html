@@ -8,6 +8,9 @@
 <meta property="og:title" content="Fleck: quantum computing for the life sciences">
 <meta property="og:description" content="An eight-party all-Swiss consortium applying quantum computing to contrast agent discovery, drug design and ULF-MRI brain cancer detection.">
 <meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;800&display=swap" rel="stylesheet">
@@ -136,8 +139,11 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   .wrap { padding: 0 16px; }
   nav ul { gap: 14px; }
   nav ul a { font-size: 14px; }
-  .hero { padding: 40px 0 48px; }
-  .blobs { display: none; }
+  .hero { padding: 28px 0 4px; }
+  .hero .wrap { display: block; }
+  .blobs { display: block; position: absolute; top: -10px; right: 12px; width: 96px; height: 104px; }
+  .hero h1 { font-size: 32px; max-width: none; }
+  .hero + section { padding-top: 32px; }
   section { padding: 44px 0; }
   .contact-box { padding: 32px 24px; }
   .partner { height: 88px; }
@@ -200,6 +206,8 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
   nav .submenu { left: auto; right: -40px; }
 }
 @media (max-width: 860px) { .br-lg { display: none; } }
+.br-sm { display: none; }
+@media (max-width: 560px) { .br-sm { display: inline; } }
 </style>
 </head>
 <body>
@@ -230,7 +238,7 @@ nav li.has-menu:hover .menu-btn svg, nav li.has-menu.open .menu-btn svg { transf
   <div class="wrap">
     <div class="hero-text">
       <div class="tag">An all-Swiss consortium</div>
-      <h1><span>Fleck:</span> quantum computing for the life sciences</h1>
+      <h1><span>Fleck:</span> quantum computing for<br class="br-sm"> the life sciences</h1>
       <p class="lead">Fleck is an eight-party all-Swiss consortium that will use quantum computing to address three key application domains: contrast agent discovery; drug design; and brain cancer detection using ultra-low field<br class="br-lg"> (ULF) MR imaging.</p>
     </div>
   <!-- Decorative "flecks", based on the project colour scheme -->
