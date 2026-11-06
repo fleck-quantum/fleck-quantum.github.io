@@ -215,6 +215,7 @@ button.person { cursor: pointer; }
 .person .pic { display: block; width: 100%; aspect-ratio: 4 / 5; border-radius: 16px; overflow: hidden; margin-bottom: 12px; }
 .person .pic img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
 .person .avatar { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 800; letter-spacing: -.02em; color: var(--ink); }
+.bio-head .pic .avatar { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 800; letter-spacing: -.02em; color: var(--ink); }
 .avatar.c0 { background: var(--pink-soft); } .avatar.c1 { background: var(--green-soft); } .avatar.c2 { background: #f8d2bd; } .avatar.c3 { background: var(--grey); }
 .person .nm { font-weight: 800; font-size: 15px; line-height: 1.25; }
 .person .rl { color: var(--pink); font-weight: 600; font-size: 12.5px; line-height: 1.35; margin-top: 4px; }
@@ -284,75 +285,86 @@ button.person:focus-visible { outline: 2px solid var(--pink); outline-offset: 6p
       <button class="person" type="button" data-bio="bio-1">
         <span class="pic"><span class="avatar c0" aria-hidden="true">TA</span></span>
         <span class="nm">Tryfon Antonakakis, PhD</span>
-        <span class="rl">Co-founder and co-CEO<br>Multiwave Technologies</span>
+        <span class="rl">Co-founder &amp; co-CEO<br>Multiwave Technologies</span>
         <span class="more">Read bio →</span>
       </button>
-      <template id="bio-1"><p>Tryfon Antonakakis is the Fleck project coordinator. He is a scientist and ex-professional athlete turned serial entrepreneur with a background in engineering and applied mathematics. From metamaterials to multi-physics software to bioengineering, Tryfon leads Multiwave Technologies’ interdisciplinary research efforts. He leverages an ability to connect the dots between different scientific fields to build Multiwave’s portable MRI intellectual property portfolio.</p></template>
-      <div class="person">
-        <span class="pic"><span class="avatar c1" aria-hidden="true">JB</span></span>
+      <template id="bio-1"><p>Tryfon is a scientist, former professional skier and serial entrepreneur leading interdisciplinary research at Multiwave Technologies. Drawing on expertise in engineering, applied mathematics and metamaterials, he drives the development of portable MRI technologies and intellectual property. He previously worked at CERN on the Large Hadron Collider and earned a PhD in Applied Mathematics from Imperial College London, where he received the Yael Dowker Centenary Prize. He also holds degrees from McGill University and EPFL.</p></template>
+      <button class="person" type="button" data-bio="bio-2">
+        <span class="pic"><span class="avatar c1" aria-hidden="true">PA</span></span>
+        <span class="nm">Panos Antonakakis</span>
+        <span class="rl">Co-founder, co-CEO &amp; Chairman<br>Multiwave Technologies</span>
+        <span class="more">Read bio →</span>
+      </button>
+      <template id="bio-2"><p>Panos is a technology entrepreneur and co-founder of Multiwave Technologies, where he has led fundraising of over $29 million in equity and non-dilutive financing since 2015. He has guided the company’s transformation into an innovator in portable MRI, building strategic partnerships and licensing opportunities. Previously an economist at the World Trade Organization, he managed a $400 million trade assistance program and later held senior trade and investment roles in London. He holds degrees in Economics from McGill and Concordia Universities.</p></template>
+      <button class="person" type="button" data-bio="bio-3">
+        <span class="pic"><span class="avatar c2" aria-hidden="true">JB</span></span>
         <span class="nm">Jonathan Bartoli</span>
         <span class="rl">Head of Grants<br>Multiwave Technologies</span>
-      </div>
+        <span class="more">Read bio →</span>
+      </button>
+      <template id="bio-3"><p>Jonathan is a PMP®-certified project and grant manager with over 15 years of experience in European R&amp;D and innovation. Since joining Multiwave Technologies in 2020, he has managed 17 R&amp;D projects representing €4.5M in secured funding and coordinated international research consortia. Previously at Aix-Marseille University, he managed the €4.5M H2020 M-CUBE project and helped secure over €17M in public funding. He specialises in Horizon Europe, EIC funding, project governance and strategic partnerships, and holds a Master’s degree from Sciences Po Paris.</p></template>
       <div class="person">
-        <span class="pic"><span class="avatar c2" aria-hidden="true">MN</span></span>
+        <span class="pic"><span class="avatar c3" aria-hidden="true">MN</span></span>
         <span class="nm">Miroslava Nedyalkova, PhD</span>
         <span class="rl">Senior Research Associate<br>University of Fribourg</span>
       </div>
       <div class="person">
-        <span class="pic"><span class="avatar c3" aria-hidden="true">PH</span></span>
+        <span class="pic"><span class="avatar c0" aria-hidden="true">PH</span></span>
         <span class="nm">Pavel Hrmo, PhD</span>
         <span class="rl">Co-founder and CEO<br>ZuriQ</span>
       </div>
       <div class="person">
-        <span class="pic"><span class="avatar c0" aria-hidden="true">TS</span></span>
+        <span class="pic"><span class="avatar c1" aria-hidden="true">TS</span></span>
         <span class="nm">Tobias Sägesser, PhD</span>
         <span class="rl">CTO<br>ZuriQ</span>
       </div>
       <div class="person">
-        <span class="pic"><span class="avatar c1" aria-hidden="true">MR</span></span>
+        <span class="pic"><span class="avatar c2" aria-hidden="true">MR</span></span>
         <span class="nm">Prof. Markus Reiher</span>
         <span class="rl">Group Leader<br>ETH Zürich</span>
       </div>
       <div class="person">
-        <span class="pic"><span class="avatar c2" aria-hidden="true">ML</span></span>
+        <span class="pic"><span class="avatar c3" aria-hidden="true">ML</span></span>
         <span class="nm">Prof. Marco Lattuada</span>
         <span class="rl">Head of Chemistry Department and Group Leader<br>University of Fribourg</span>
       </div>
       <div class="person">
-        <span class="pic"><span class="avatar c3" aria-hidden="true">JM</span></span>
+        <span class="pic"><span class="avatar c0" aria-hidden="true">JM</span></span>
         <span class="nm">Jan Mikolon</span>
         <span class="rl">CTO<br>QuantumBasel</span>
       </div>
       <div class="person">
-        <span class="pic"><span class="avatar c0" aria-hidden="true">JB</span></span>
+        <span class="pic"><span class="avatar c1" aria-hidden="true">JB</span></span>
         <span class="nm">Julien Baglio, PhD</span>
         <span class="rl">Senior Research Associate<br>University of Basel</span>
       </div>
       <div class="person">
-        <span class="pic"><span class="avatar c1" aria-hidden="true">FG</span></span>
+        <span class="pic"><span class="avatar c2" aria-hidden="true">FG</span></span>
         <span class="nm">Fabrice Gallou, PhD</span>
         <span class="rl">Distinguished Scientist<br>Novartis Pharma</span>
       </div>
       <div class="person">
-        <span class="pic"><span class="avatar c2" aria-hidden="true">ME</span></span>
+        <span class="pic"><span class="avatar c3" aria-hidden="true">ME</span></span>
         <span class="nm">Maximilian Eggersdorfer, PhD</span>
         <span class="rl">Director of Data Science &amp; AI<br>Novartis Pharma</span>
       </div>
       <div class="person">
-        <span class="pic"><span class="avatar c3" aria-hidden="true">JG</span></span>
+        <span class="pic"><span class="avatar c0" aria-hidden="true">JG</span></span>
         <span class="nm">Janine Goldiger</span>
         <span class="rl">Lead Academia &amp; Foundation Partnerships<br>QuantumBasel</span>
       </div>
       <div class="person">
-        <span class="pic"><span class="avatar c0" aria-hidden="true">DS</span></span>
+        <span class="pic"><span class="avatar c1" aria-hidden="true">DS</span></span>
         <span class="nm">Daniel Spingies</span>
         <span class="rl">Financial Officer<br>University of Basel</span>
       </div>
-      <div class="person">
-        <span class="pic"><span class="avatar c1" aria-hidden="true">LZ</span></span>
-        <span class="nm">Lei Zhang</span>
+      <button class="person" type="button" data-bio="bio-4">
+        <span class="pic"><span class="avatar c2" aria-hidden="true">LZ</span></span>
+        <span class="nm">Lei Zhang, PhD</span>
         <span class="rl">Head of Computational Physics<br>Multiwave Technologies</span>
-      </div>
+        <span class="more">Read bio →</span>
+      </button>
+      <template id="bio-4"><p>Lei Zhang joined Multiwave Technologies in 2017 after completing a PhD in computational solid mechanics at École Centrale Marseille and CNRS-LMA. He now leads the computational physics team and serves as MRI system architect. His expertise spans numerical modelling, electromagnetics, digital twins and physics-based AI. He develops GPU-accelerated, differentiable simulation tools that integrate machine learning and experimental measurements. He also holds a Master’s degree in Computer Science and Technology from Beihang University.</p></template>
     </div>
 
     <dialog class="bio-dlg" id="bio-dlg">
